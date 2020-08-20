@@ -52,6 +52,6 @@ class Navbar {
     collapseInner.appendChild(reservationsLink)
 
     // ADD EVENT LISTENERS FOR LINKS
-    itemsLink.addEventListener('click', Item.get)
+    itemsLink.addEventListener('click', Item.getAll)
   }
 }
