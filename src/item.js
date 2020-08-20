@@ -38,6 +38,7 @@ class Item {
     const tbody = document.createElement('tbody')
 
     // DETAILS
+    table.id = "items-table"
     table.classList.add('table', 'table-hover')
     headerCheck.scope = 'col'
     headerTitle.scope = 'col'
