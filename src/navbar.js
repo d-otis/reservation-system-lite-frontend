@@ -1,7 +1,5 @@
 class Navbar {
-  constructor() {
-
-  }
+  constructor() {}
 
   static render() {
     // DECLARATIONS + ASSIGNMENTS
@@ -52,5 +50,8 @@ class Navbar {
     collapseContainer.appendChild(collapseInner)
     collapseInner.appendChild(itemsLink)
     collapseInner.appendChild(reservationsLink)
+
+    // ADD EVENT LISTENERS FOR LINKS
+    itemsLink.addEventListener('click', Item.get)
   }
 }
