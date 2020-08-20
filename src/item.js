@@ -14,12 +14,14 @@ class Item {
     }
 
     e.preventDefault()
-
-    fetch('http://127.0.0.1:3000/api/v1/items')
-      .then(res => res.json())
-      .then(json => generateItems(json))
-      .then(items => Item.renderAll(items))
-      // .catch(err => document.write(err))
+    // debugger
+    if (!document.getElementById('items-table')) {
+      fetch('http://127.0.0.1:3000/api/v1/items')
+        .then(res => res.json())
+        .then(json => generateItems(json))
+        .then(items => Item.renderAll(items))
+        // .catch(err => document.write(err))
+    }
   }
 
   static renderAll(items) {
