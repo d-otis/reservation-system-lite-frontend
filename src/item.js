@@ -63,7 +63,14 @@ class Item {
     tableHeadersRow.appendChild(headerSerial)
     table.appendChild(tbody)
 
-    debugger
+    for (const item of items) {
+      item.render(tbody)
+    }
+  }
+
+  render = function(tbody) {
+    // DECLARATIONS AND ASSIGNMENTS
+    // debugger
   }
 
 
