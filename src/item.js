@@ -8,7 +8,8 @@ class Item {
     this.isAvailable = isAvailable
   }
 
-  static get() {
+  static get(e) {
+    e.preventDefault()
     fetch()
   }
 }
