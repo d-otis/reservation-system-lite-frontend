@@ -88,14 +88,16 @@ class Item {
 
     // NODE ATTRS
     th.scope = "row"
+    if (!this.isAvailable) tr.classList.add('table-danger')
 
     checkContainer.classList.add('form-group', 'form-check')
 
     checkbox.type = "checkbox"
     checkbox.classList.add('form-check-input')
     checkbox.id = `select-item-${this.id}`
-    checkbox.name = `item[id]`
-    checkbox.value = true
+    checkbox.name = `reservation[item_ids][]`
+    checkbox.value = this.id
+    if (!this.isAvailable) checkbox.disabled = true
 
     itemTitle.innerText = this.title
     itemDesc.innerText = this.shortDescription
