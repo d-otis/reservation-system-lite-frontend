@@ -6,4 +6,5 @@ root.classList.add('container-fluid')
 Navbar.render()
 
 // FOR DEV ONLY
-Item.getAll()
+// Item.getAll()
+Reservation.getAll()
