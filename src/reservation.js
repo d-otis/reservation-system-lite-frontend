@@ -40,7 +40,12 @@ class Reservation {
     fetch('http://127.0.0.1:3000/api/v1/reservations/')
     .then(res => res.json())
     .then(json => generateReservations(json))
+    .then(reservations => Reservation.renderAll(reservations))
     .catch(err => console.log(err))
+  }
+
+  static renderAll(reservations) {
+    debugger
   }
 
   update = function() {
