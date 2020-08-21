@@ -46,7 +46,7 @@ class Item {
 
     // DETAILS
     table.id = "items-table"
-    table.classList.add('table', 'table-hover')
+    table.classList.add('table', 'table-hover', 'mb-5', 'shadow-sm')
     headerCheck.scope = 'col'
     headerTitle.scope = 'col'
     headerDesc.scope = 'col'
