@@ -70,7 +70,38 @@ class Item {
 
   render = function(tbody) {
     // DECLARATIONS AND ASSIGNMENTS
-    // debugger
+    const tr = document.createElement('tr')
+    const th = document.createElement('th')
+    const checkbox = document.createElement('input')
+    const itemTitle = document.createElement('td')
+    const itemDesc = document.createElement('td')
+    const itemIsAvailable = document.createElement('td')
+    const itemSerial = document.createElement('td')
+
+    // NODE ATTRS
+    th.scope = "row"
+    th.classList.add('form-group', 'form-check')
+
+    checkbox.type = "checkbox"
+    checkbox.classList.add('form-check-input')
+    checkbox.id = `select-item-${this.id}`
+    checkbox.name = `item[id]`
+    checkbox.value = true
+
+    itemTitle.innerText = this.title
+    itemDesc.innerText = this.description
+    itemIsAvailable.innerText = this.isAvailable
+    itemSerial.innerText = this.serialNumber
+
+
+    // APPENDS FOR DAYS
+    tbody.appendChild(tr)
+    tr.appendChild(th)
+    th.appendChild(checkbox)
+    tr.appendChild(itemTitle)
+    tr.appendChild(itemDesc)
+    tr.appendChild(itemIsAvailable)
+    tr.appendChild(itemSerial)
   }
 
 
