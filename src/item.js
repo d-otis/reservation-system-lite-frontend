@@ -34,6 +34,7 @@ class Item {
   static renderAll(items) {
     // TABLE
     // VARIABLE DECLARATION/ASSIGNMENT
+    const form = document.createElement('form')
     const table = document.createElement('table')
     const thead = document.createElement('thead')
     const tableHeadersRow = document.createElement('tr')
@@ -60,7 +61,9 @@ class Item {
     headerSerial.innerText = 'Serial Number'
 
     // APPEND TABLE HEADERS
-    root.appendChild(table)
+    root.appendChild(form)
+    // root.appendChild(table)
+    form.appendChild(table)
     table.appendChild(thead)
     thead.appendChild(tableHeadersRow)
     tableHeadersRow.appendChild(headerCheck)
@@ -77,15 +80,16 @@ class Item {
     function renderCreateReservationBtn() {
       const button = document.createElement('button')
       button.classList.add('btn', 'btn-block', 'btn-secondary', 'mb-5')
-      button.type = 'button'
+      button.type = 'submit'
       button.innerText = "Create Reservation"
       button.id = 'create-reservation'
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function(e) {
         // debugger
+        e.preventDefault()
         alert('reservation made')
       })
 
-      root.appendChild(button)
+      form.appendChild(button)
     }
 
     renderCreateReservationBtn()
