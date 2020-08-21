@@ -42,7 +42,7 @@ class Navbar {
     reservationsLink.id = "reservations-link"
 
     // APPEND
-    root.appendChild(nav)
+    header.appendChild(nav)
     nav.appendChild(brand)
     nav.appendChild(hamburger)
     hamburger.appendChild(icon)
