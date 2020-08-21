@@ -53,5 +53,6 @@ class Navbar {
 
     // ADD EVENT LISTENERS FOR LINKS
     itemsLink.addEventListener('click', Item.getAll)
+    reservationsLink.addEventListener('click', Reservation.getAll)
   }
 }
