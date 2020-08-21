@@ -48,7 +48,6 @@ class Item {
     // DETAILS
     form.action = 'http://127.0.0.1:3000/api/v1/reservations'
     form.method = "POST"
-    debugger
 
     table.id = "items-table"
     table.classList.add('table', 'table-hover', 'mb-5', 'shadow-sm')
