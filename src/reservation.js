@@ -29,7 +29,17 @@ class Reservation {
   }
 
   static getAll(e) {
-    debugger
+    function generateReservations(json) {
+      return json.data.map(reservation => new Reservation(reservation))
+    }
+
+    if (e) e.preventDefault()
+    if (document.querySelector('form')) document.querySelector('form').remove()
+    
+    fetch('http://127.0.0.1:3000/api/v1/reservations/')
+    .then(res => res.json())
+    .then(json => generateReservations(json))
+    .catch(err => console.log(err))
   }
 
   update = function() {
