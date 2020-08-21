@@ -20,7 +20,7 @@ class Item {
       return json.data.map(item => new Item(item))
     }
 
-    e.preventDefault()
+    if (e) e.preventDefault()
     // debugger
     if (!document.getElementById('items-table')) {
       fetch('http://127.0.0.1:3000/api/v1/items')
