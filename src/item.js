@@ -120,7 +120,7 @@ class Item {
 
     checkbox.type = "checkbox"
     checkbox.classList.add('form-check-input')
-    checkbox.id = `select-item-${this.id}`
+    checkbox.id = this.id
     checkbox.name = `reservation[item_ids][]`
     checkbox.value = this.id
     if (!this.isAvailable) checkbox.disabled = true
