@@ -38,7 +38,7 @@ class Navbar {
 
     // RESERVATIONS
     reservationsLink.classList.add('nav-item', 'nav-link')
-    reservationsLink.innerText = "Reservation"
+    reservationsLink.innerText = "Reservations"
     reservationsLink.id = "reservations-link"
 
     // APPEND
