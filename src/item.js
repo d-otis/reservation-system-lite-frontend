@@ -87,10 +87,12 @@ class Item {
       button.type = 'submit'
       button.innerText = "Create Reservation"
       button.id = 'create-reservation'
-      button.addEventListener('click', function(e) {
-        // debugger
+      button.addEventListener('click', e => {
         e.preventDefault()
-        alert('reservation made')
+        const allChecks = Array.from(document.querySelectorAll('input'))
+        const filteredChecks = allChecks.filter(e => e.checked)
+        const itemIds = filteredChecks.map(e => e.id)
+        Reservation.create(itemIds)
       })
 
       form.appendChild(button)
