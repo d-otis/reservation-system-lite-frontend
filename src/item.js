@@ -76,12 +76,13 @@ class Item {
 
     function renderCreateReservationBtn() {
       const button = document.createElement('button')
-      button.classList.add('btn', 'btn-block', 'btn-secondary')
+      button.classList.add('btn', 'btn-block', 'btn-secondary', 'mb-5')
       button.type = 'button'
       button.innerText = "Create Reservation"
       button.id = 'create-reservation'
       button.addEventListener('click', function() {
-        debugger
+        // debugger
+        alert('reservation made')
       })
 
       root.appendChild(button)
