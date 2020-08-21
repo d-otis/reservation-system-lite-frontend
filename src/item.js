@@ -73,6 +73,21 @@ class Item {
     for (const item of items) {
       item.render(tbody)
     }
+
+    function renderCreateReservationBtn() {
+      const button = document.createElement('button')
+      button.classList.add('btn', 'btn-block', 'btn-secondary')
+      button.type = 'button'
+      button.innerText = "Create Reservation"
+      button.id = 'create-reservation'
+      button.addEventListener('click', function() {
+        debugger
+      })
+
+      root.appendChild(button)
+    }
+
+    renderCreateReservationBtn()
   }
 
   render = function(tbody) {
