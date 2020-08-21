@@ -8,6 +8,13 @@ class Item {
     this.isAvailable = obj.attributes.is_available
   }
 
+  get shortDescription() {
+    return this.description.split(". ").map((x, index) => {
+      return index <= 1 ? x : ''
+    }).filter(x => x != "").join(". ") + "..."
+    // debugger
+  }
+
   static getAll(e) {
     function generateItems(json) {
       return json.data.map(item => new Item(item))
@@ -91,7 +98,7 @@ class Item {
     checkbox.value = true
 
     itemTitle.innerText = this.title
-    itemDesc.innerText = this.description
+    itemDesc.innerText = this.shortDescription
     itemIsAvailable.innerText = this.isAvailable
     itemSerial.innerText = this.serialNumber
 
