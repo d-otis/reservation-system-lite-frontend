@@ -72,6 +72,7 @@ class Item {
     // DECLARATIONS AND ASSIGNMENTS
     const tr = document.createElement('tr')
     const th = document.createElement('th')
+    const checkContainer = document.createElement('div')
     const checkbox = document.createElement('input')
     const itemTitle = document.createElement('td')
     const itemDesc = document.createElement('td')
@@ -80,7 +81,8 @@ class Item {
 
     // NODE ATTRS
     th.scope = "row"
-    th.classList.add('form-group', 'form-check')
+
+    checkContainer.classList.add('form-group', 'form-check')
 
     checkbox.type = "checkbox"
     checkbox.classList.add('form-check-input')
@@ -97,7 +99,8 @@ class Item {
     // APPENDS FOR DAYS
     tbody.appendChild(tr)
     tr.appendChild(th)
-    th.appendChild(checkbox)
+    th.appendChild(checkContainer)
+    checkContainer.appendChild(checkbox)
     tr.appendChild(itemTitle)
     tr.appendChild(itemDesc)
     tr.appendChild(itemIsAvailable)
