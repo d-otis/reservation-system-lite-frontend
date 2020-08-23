@@ -152,17 +152,21 @@ class Reservation {
     notesTextAreaCol.classList.add('col-sm-5', 'offset-sm-1')
 
     // APPENDS FOR DAYS
+    // h1 - RESERVATION #
     root.appendChild(resHeaderRow)
     resHeaderRow.appendChild(resHeaderCol)
-
+    // h2 - Items
     root.appendChild(itemsHeaderRow)
     itemsHeaderRow.appendChild(itemsHeaderCol)
+    // Items Table
+    root.appendChild(tableRow)
+    tableRow.appendChild(tableCol)
+    appendItemsTableTo(tableCol, items)
 
-
-
+    // h3 - Notes
     root.appendChild(notesHeaderRow)
-    notesHeaderRow.appendChild(notesHeaderCol)
     root.appendChild(notesTextAreaRow)
+    notesHeaderRow.appendChild(notesHeaderCol)
     notesTextAreaRow.appendChild(notesTextAreaCol)
   }
 
