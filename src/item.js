@@ -22,6 +22,7 @@ class Item {
 
     if (e) e.preventDefault()
     // debugger
+    if (document.querySelector('#reservations-table')) document.querySelector('#reservations-table').remove()
     if (!document.getElementById('items-table')) {
       fetch('http://127.0.0.1:3000/api/v1/items')
         .then(res => res.json())
