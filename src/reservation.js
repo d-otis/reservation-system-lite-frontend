@@ -27,7 +27,80 @@ class Reservation {
   }
 
   static renderFromJson(json) {
-    debugger
+
+    const reservation = new Reservation(json.data)
+    const items = Item.generateItems(json)
+
+    // DECLARATIONS + ASSIGNMENTS
+    // ROWS
+    const resHeaderRow = document.createElement('div')
+    const itemsHeaderRow = document.createElement('div')
+    const tableRow = document.createElement('div')
+    const notesHeaderRow = document.createElement('div')
+    const notesTextAreaRow = document.createElement('div')
+    // COLUMNS
+    const resHeaderCol = document.createElement('div')
+    const itemsHeaderCol = document.createElement('div')
+    const tableCol = document.createElement('div')
+    const notesHeaderCol = document.createElement('div')
+    const notesTextAreaCol = document.createElement('div')
+    // CONTENT
+    // Reservation Header
+    const h1 = document.createElement('h1')
+    h1.innerText = `Reservation # ${reservation.id}`
+    resHeaderCol.appendChild(h1)
+    // Items Header
+    const h2 = document.createElement('h2')
+    h2.innerText = 'Items'
+    itemsHeaderCol.appendChild(h2)
+    // Table Proper
+
+    // Notes Header
+    const h3 = document.createElement('h3')
+    h3.innerText = "Notes"
+    notesHeaderCol.appendChild(h3)
+    // Notes Textarea
+    const textarea = document.createElement('textarea')
+    const formGroup = document.createElement('div')
+
+    formGroup.classList.add('form-group')
+    notesTextAreaCol.appendChild(formGroup)
+    formGroup.appendChild(textarea)
+    textarea.rows = "5"
+    textarea.classList.add('form-control')
+
+    // SET ATTRIBUTES/PROPERTIES
+    // ROWS
+    resHeaderRow.classList.add('row', 'mb-5')
+    resHeaderRow.id = "res-header-row"
+    itemsHeaderRow.classList.add('row')
+    itemsHeaderRow.id = "items-header-row"
+    tableRow.classList.add('row')
+    tableRow.id = "table-row"
+    notesHeaderRow.classList.add('row', 'mt-5')
+    notesHeaderRow.id = "notes-header-row"
+    notesTextAreaRow.classList.add('row')
+    notesTextAreaRow.id = "notes-textarea-row"
+    // COLUMNS
+    resHeaderCol.classList.add('col-sm-10', 'offset-sm-1')
+    itemsHeaderCol.classList.add('col-sm-10', 'offset-sm-1')
+    tableCol.classList.add('col-sm-10', 'offset-sm-1')
+    notesHeaderCol.classList.add('col-sm-5', 'offset-sm-1')
+    notesTextAreaCol.classList.add('col-sm-5', 'offset-sm-1')
+
+    // APPENDS FOR DAYS
+    root.appendChild(resHeaderRow)
+    resHeaderRow.appendChild(resHeaderCol)
+
+    root.appendChild(itemsHeaderRow)
+    itemsHeaderRow.appendChild(itemsHeaderCol)
+
+
+
+    root.appendChild(notesHeaderRow)
+    notesHeaderRow.appendChild(notesHeaderCol)
+    root.appendChild(notesTextAreaRow)
+    notesTextAreaRow.appendChild(notesTextAreaCol)
   }
 
   static getAll(e) {
