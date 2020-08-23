@@ -69,6 +69,7 @@ class Reservation {
         const removeTd = document.createElement("td")
         const removeBtn = document.createElement("button")
 
+        tr.id = item.id
         id.scope = "row"
         id.innerText = item.id
         title.innerText = item.title
