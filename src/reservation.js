@@ -140,6 +140,25 @@ class Reservation {
     formGroup.appendChild(textarea)
     textarea.rows = "5"
     textarea.classList.add('form-control')
+    textarea.dataset.id = reservation.id
+    textarea.value = reservation.notes
+
+    textarea.addEventListener('change', e => {
+      const id = e.target.dataset.id
+      const note = e.target.value
+      const config = {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({"reservation": {"notes": note}})
+      }
+      fetch(`http://127.0.0.1:3000/api/v1/reservations/${id}`, config)
+        .then(res => res.json())
+        .then(json => renderAlert(json))
+        .catch(err => console.log(err))
+    })
 
     // SET ATTRIBUTES/PROPERTIES
     // ROWS
