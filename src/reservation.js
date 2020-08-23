@@ -115,10 +115,10 @@ class Reservation {
     resNumItems.innerText = this.numItems
     deleteBtn.classList.add('btn', 'btn-sm', 'btn-danger')
     deleteBtn.innerText = "Delete"
-    deleteBtn.dataset.deleteReservation = this.id
+    deleteBtn.dataset.id = this.id
     viewBtn.innerText = 'View'
     viewBtn.classList.add('btn', 'btn-sm', 'btn-secondary')
-    viewBtn.dataset.viewReservation = this.id
+    viewBtn.dataset.id = this.id
 
     // APPENDS
     tbody.appendChild(tr)
