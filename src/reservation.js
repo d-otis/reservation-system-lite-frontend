@@ -1,5 +1,6 @@
 class Reservation {
   constructor(obj) {
+    this.id = obj.id
     this.notes = obj.attributes.notes
     this.inProgress = obj.attributes.in_progress
     this.isComplete = obj.attributes.is_complete
