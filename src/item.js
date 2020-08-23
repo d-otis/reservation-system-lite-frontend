@@ -21,7 +21,9 @@ class Item {
 
   static getAll(e) {
     if (e) e.preventDefault()
-    // debugger
+
+    Array.from(root.children).forEach(e => e.remove())
+
     if (document.querySelector('#reservations-table')) document.querySelector('#reservations-table').remove()
     if (!document.getElementById('items-table')) {
       fetch('http://127.0.0.1:3000/api/v1/items')
