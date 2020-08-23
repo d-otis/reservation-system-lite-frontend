@@ -13,7 +13,7 @@ class Reservation {
       method: "post",
       headers: {
         "Content-Type": "application/json",
-        "Accept-Type": "application/json"
+        "Accept": "application/json"
       },
       body: JSON.stringify({"reservation": {"item_ids": itemIds}})
     }
