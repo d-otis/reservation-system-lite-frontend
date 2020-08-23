@@ -75,6 +75,7 @@ class Reservation {
         id.innerText = item.id
         title.innerText = item.title
         serial.innerText = item.serialNumber
+        serial.classList.add('text-monospace')
         removeTd.appendChild(removeBtn)
         removeBtn.innerText = "remove"
         removeBtn.type = "button"
