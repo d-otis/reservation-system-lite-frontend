@@ -91,6 +91,14 @@ class Reservation {
       el.appendChild(table)
     }
 
+    function renderAlert(json) {
+      const alert = document.createElement('div')
+      alert.classList.add('alert', 'alert-warning', 'text-center')
+      alert.role = 'alert'
+      alert.innerText = json.message
+      root.prepend(alert)
+    }
+
     const reservation = new Reservation(json.data)
     const items = Item.generateItems(json)
 
