@@ -177,9 +177,13 @@ class Reservation {
 
     // EVENT LISTENERS
     // SHOW/EDIT EVENT LISTENER
-    // viewBtn.addEventLister('click', function(e) {
-    //   // debugger
-    // })
+    viewBtn.addEventListener('click', e => {
+      const id = e.target.dataset.id
+      fetch(`http://127.0.0.1:3000/api/v1/reservations/${id}`)
+        .then(res => res.json())
+        .then(json => Reservation.renderFromJson(json))
+        .catch(err => console.log(err))
+    })
 
     // ELEMENT ATTRIBUTES/PROPERTIES
     thResId.scope = 'row'
