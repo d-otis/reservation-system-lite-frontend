@@ -78,7 +78,7 @@ class Reservation {
         removeTd.appendChild(removeBtn)
         removeBtn.innerText = "remove"
         removeBtn.type = "button"
-        removeBtn.dataset.itemId = item.id
+        removeBtn.dataset.id = item.id
         removeBtn.classList.add('btn', 'btn-danger', 'btn-sm')
 
         tr.appendChild(id)
