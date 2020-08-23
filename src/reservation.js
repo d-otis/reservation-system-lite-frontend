@@ -80,6 +80,27 @@ class Reservation {
         removeBtn.type = "button"
         removeBtn.dataset.id = item.id
         removeBtn.classList.add('btn', 'btn-danger', 'btn-sm')
+        // const ids = [1,2,3]
+
+        removeBtn.addEventListener('click', function(e) {
+          const itemId = e.target.dataset.id
+          const updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
+
+          const config = {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({"reservation": {"item_ids": updatedItemIds}})
+          }
+          fetch(`http://127.0.0.1:3000/api/v1/reservations/${reservation.id}`, config)
+            .then(res => res.json())
+            .then(json => renderAlert(json))
+            .catch(err => console.log(err))
+          
+          document.getElementById(itemId).remove()
+        }.bind(reservation))
 
         tr.appendChild(id)
         tr.appendChild(title)
