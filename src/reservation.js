@@ -74,7 +74,7 @@ class Reservation {
         id.scope = "row"
         id.innerText = item.id
         title.innerText = item.title
-        serial.innerText = item.serialNumber
+        serial.innerText = item.serialNumber.toUpperCase()
         serial.classList.add('text-monospace')
         removeTd.appendChild(removeBtn)
         removeBtn.innerText = "remove"
