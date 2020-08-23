@@ -28,6 +28,69 @@ class Reservation {
 
   static renderFromJson(json) {
 
+    function appendItemsTableTo(el, items) {
+      // DECLARATIONS + ASSIGMENTS
+      const table = document.createElement('table')
+      const thead = document.createElement('thead')
+      const tr = document.createElement('tr')
+      const headerItemId = document.createElement('th')
+      const headerTitle = document.createElement('th')
+      const headerSerial = document.createElement('th')
+      const headerRemove = document.createElement('th')
+      const tbody = document.createElement('tbody')
+
+      // ELEMENT ATTRIBUTES
+      table.classList.add('table')
+      headerItemId.scope = "col"
+      headerTitle.scope = "col"
+      headerSerial.scope = "col"
+      headerRemove.scope = "col"
+
+      headerItemId.innerText = "Item ID"
+      headerTitle.innerText = "Name"
+      headerSerial.innerText = "Serial Number"
+      headerRemove.innerText = "Remove"
+
+      // BOILER APPENDS
+      table.appendChild(thead)
+      thead.appendChild(tr)
+      tr.appendChild(headerItemId)
+      tr.appendChild(headerTitle)
+      tr.appendChild(headerSerial)
+      tr.appendChild(headerRemove)
+      table.appendChild(tbody)
+
+      for (const item of items) {
+        // debugger
+        const tr = document.createElement('tr')
+        const id = document.createElement("th")
+        const title = document.createElement("td")
+        const serial = document.createElement("td")
+        const removeTd = document.createElement("td")
+        const removeBtn = document.createElement("button")
+
+        id.scope = "row"
+        id.innerText = item.id
+        title.innerText = item.title
+        serial.innerText = item.serialNumber
+        removeTd.appendChild(removeBtn)
+        removeBtn.innerText = "remove"
+        removeBtn.type = "button"
+        removeBtn.dataset.itemId = item.id
+        removeBtn.classList.add('btn', 'btn-danger', 'btn-sm')
+
+        tr.appendChild(id)
+        tr.appendChild(title)
+        tr.appendChild(serial)
+        tr.appendChild(removeTd)
+
+        tbody.appendChild(tr)
+      }
+
+      // return table
+      el.appendChild(table)
+    }
+
     const reservation = new Reservation(json.data)
     const items = Item.generateItems(json)
 
