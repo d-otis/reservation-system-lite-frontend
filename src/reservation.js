@@ -22,7 +22,7 @@ class Reservation {
 
     fetch('http://127.0.0.1:3000/api/v1/reservations', config)
       .then(res => res.json())
-      .then(json => renderFromJson(json))
+      .then(json => Reservation.renderFromJson(json))
       .catch(err => console.log(err))
   }
 
