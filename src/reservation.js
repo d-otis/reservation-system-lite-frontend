@@ -98,7 +98,7 @@ class Reservation {
             .then(res => res.json())
             .then(json => renderAlert(json))
             .catch(err => console.log(err))
-          
+
           document.getElementById(itemId).remove()
         }.bind(reservation))
 
@@ -116,10 +116,14 @@ class Reservation {
 
     function renderAlert(json) {
       const alert = document.createElement('div')
-      alert.classList.add('alert', 'alert-warning', 'text-center')
+      alert.classList.add('alert', 'alert-warning', 'text-center', 'animate__animated', 'animate__fadeOutUp', 'animate__delay-2s')
       alert.role = 'alert'
       alert.innerText = json.message
       root.prepend(alert)
+      // alert.classList.add('animate__fadeOutUp')
+      setTimeout(function() {
+        alert.remove()
+      }, 3500)
     }
 
     const reservation = new Reservation(json.data)
