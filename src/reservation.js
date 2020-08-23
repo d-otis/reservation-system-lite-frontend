@@ -176,7 +176,7 @@ class Reservation {
     }
 
     if (e) e.preventDefault()
-    if (document.querySelector('form')) document.querySelector('form').remove()
+    Array.from(root.children).forEach(e => e.remove())
 
     if (!document.querySelector('#reservations-table')) {
       fetch('http://127.0.0.1:3000/api/v1/reservations/')
@@ -246,6 +246,8 @@ class Reservation {
     // SHOW/EDIT EVENT LISTENER
     viewBtn.addEventListener('click', e => {
       const id = e.target.dataset.id
+      // root.querySelector('table').remove()
+      Array.from(root.children).forEach(e => e.remove())
       fetch(`http://127.0.0.1:3000/api/v1/reservations/${id}`)
         .then(res => res.json())
         .then(json => Reservation.renderFromJson(json))
