@@ -5,6 +5,7 @@ class Reservation {
     this.inProgress = obj.attributes.in_progress
     this.isComplete = obj.attributes.is_complete
     this.numItems = obj.relationships.items.data.length
+    this.itemIds = obj.relationships.items.data.map(e => e.id)
   }
 
   static create(itemIds) {
