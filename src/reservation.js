@@ -54,7 +54,6 @@ class Reservation {
     const headerNotes = document.createElement("th")
     const headerNumItems = document.createElement("th")
     const headerShow = document.createElement("th")
-    const headerEdit = document.createElement("th")
     const headerDelete = document.createElement("th")
     const tbody = document.createElement("tbody")
 
@@ -64,15 +63,14 @@ class Reservation {
     headerId.scope = "col"
     headerNotes.scope = "col"
     headerNumItems.scope = "col"
-    headerEdit.scope = "col"
     headerDelete.scope = "col"
+    headerShow.scope = 'col'
 
     // HEADERS INNERTEXT
     headerId.innerText = "Reservation ID"
     headerNotes.innerText = "Notes"
     headerNumItems.innerText = "Number of Items"
     headerShow.innerText = "View"
-    headerEdit.innerText = "Edit"
     headerDelete.innerText = "Delete"
 
     // APPENDS
@@ -83,7 +81,6 @@ class Reservation {
     headersRow.appendChild(headerNotes)
     headersRow.appendChild(headerNumItems)
     headersRow.appendChild(headerShow)
-    headersRow.appendChild(headerEdit)
     headersRow.appendChild(headerDelete)
     table.appendChild(tbody)
 
@@ -99,11 +96,15 @@ class Reservation {
     const resNotes = document.createElement('td')
     const resNumItems = document.createElement('td')
     const resShowTd = document.createElement('td')
-    const resEditTd = document.createElement('td')
     const resDeleteTd = document.createElement('td')
     const viewBtn = document.createElement('button')
     const deleteBtn = document.createElement('button')
-    const editBtn = document.createElement('button')
+
+    // EVENT LISTENERS
+    // SHOW/EDIT EVENT LISTENER
+    // viewBtn.addEventLister('click', function(e) {
+    //   // debugger
+    // })
 
     // ELEMENT ATTRIBUTES/PROPERTIES
     thResId.scope = 'row'
@@ -111,13 +112,10 @@ class Reservation {
     resNotes.innerText = this.notes
     resNumItems.innerText = this.numItems
     deleteBtn.classList.add('btn', 'btn-sm', 'btn-danger')
-    editBtn.classList.add('btn', 'btn-sm', 'btn-secondary')
     deleteBtn.innerText = "Delete"
-    editBtn.innerText = "Edit"
     deleteBtn.dataset.deleteReservation = this.id
-    editBtn.dataset.editReservation = this.id
     viewBtn.innerText = 'View'
-    viewBtn.classList.add('btn', 'btn-sm', 'btn-primary')
+    viewBtn.classList.add('btn', 'btn-sm', 'btn-secondary')
     viewBtn.dataset.viewReservation = this.id
 
     // APPENDS
@@ -126,10 +124,8 @@ class Reservation {
     tr.appendChild(resNotes)
     tr.appendChild(resNumItems)
     tr.appendChild(resShowTd)
-    tr.appendChild(resEditTd)
     tr.appendChild(resDeleteTd)
     resShowTd.appendChild(viewBtn)
-    resEditTd.appendChild(editBtn)
     resDeleteTd.appendChild(deleteBtn)
   }
 
