@@ -15,18 +15,18 @@ class Item {
     // debugger
   }
 
-  static getAll(e) {
-    function generateItems(json) {
-      return json.data.map(item => new Item(item))
-    }
+  static generateItems(json) {
+    return !!json.included ? json.included.map(item => new Item(item)) : json.data.map(item => new Item(item))
+  }
 
+  static getAll(e) {
     if (e) e.preventDefault()
     // debugger
     if (document.querySelector('#reservations-table')) document.querySelector('#reservations-table').remove()
     if (!document.getElementById('items-table')) {
       fetch('http://127.0.0.1:3000/api/v1/items')
         .then(res => res.json())
-        .then(json => generateItems(json))
+        .then(json => Item.generateItems(json))
         .then(items => Item.renderAll(items))
         // .catch(err => document.write(err))
     }
