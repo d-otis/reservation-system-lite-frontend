@@ -152,7 +152,13 @@ class Reservation {
     // Items Header
     const h2 = document.createElement('h2')
     h2.innerText = 'Items'
+    h2.style.display = "inline"
     itemsHeaderCol.appendChild(h2)
+    const addItemsButton = document.createElement('button')
+    addItemsButton.type = "button"
+    addItemsButton.classList.add('btn', 'btn-sm', 'btn-primary', 'ml-3', 'mb-2')
+    addItemsButton.innerText = "Add Items"
+    itemsHeaderCol.appendChild(addItemsButton)
     // Table Proper
 
     // Notes Header
