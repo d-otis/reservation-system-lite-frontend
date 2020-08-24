@@ -243,7 +243,7 @@ class Reservation {
     }
   }
 
-  static renderAll(reservations) {
+  static renderAll() {
     // DECLARATIONS + ASSIGNMENTS
     const table = document.createElement("table")
     const thead = document.createElement("thead")
@@ -282,7 +282,7 @@ class Reservation {
     headersRow.appendChild(headerDelete)
     table.appendChild(tbody)
 
-    for (const reservation of reservations) {
+    for (const reservation of RESERVATIONS) {
       reservation.render(tbody)
     }
   }
