@@ -117,14 +117,15 @@ class Reservation {
 
     function renderAlert(json) {
       const alert = document.createElement('div')
-      alert.classList.add('alert', 'alert-warning', 'text-center', 'animate__animated', 'animate__fadeOutUp', 'animate__delay-2s')
+      alert.classList.add('alert', 'alert-warning', 'text-center', 'animate__animated', 'animate__fadeInDown')
       alert.role = 'alert'
       alert.innerText = json.message
       root.prepend(alert)
-      // alert.classList.add('animate__fadeOutUp')
-      setTimeout(function() {
-        alert.remove()
-      }, 3500)
+      alert.addEventListener('animationend', function() {
+        event.target.classList.remove('animate__fadeInDown')
+        event.target.classList.add('animate__fadeOutUp', 'animate__delay-2s')
+        event.target.addEventListener('animationend', (e) => e.target.remove())
+      })
     }
 
     const reservation = new Reservation(json.data)
