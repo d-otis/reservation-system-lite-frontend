@@ -34,7 +34,7 @@ class Item {
     }
   }
 
-  static renderAll(items) {
+  static renderAll() {
     // TABLE
     // VARIABLE DECLARATION/ASSIGNMENT
     const form = document.createElement('form')
@@ -79,7 +79,7 @@ class Item {
     tableHeadersRow.appendChild(headerSerial)
     table.appendChild(tbody)
 
-    for (const item of items) {
+    for (const item of ITEMS) {
       item.render(tbody)
     }
 
