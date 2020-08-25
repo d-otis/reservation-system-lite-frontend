@@ -8,8 +8,9 @@ root.classList.add('container-fluid')
 
 Navbar.render()
 
+// SENDS A POST REQUEST TO PASSED IN CONTROLLER
 const create = (obj, controller) => {
-  // ITEM
+  // FORMATS REQUEST BODY BASED CONTROLLER PARAMETER
   const formatObj = (obj, controller) => {
     // debugger
     if (controller === "items") {
@@ -30,7 +31,7 @@ const create = (obj, controller) => {
       }
     }
   }
-  // 
+  // Properly Formatted Req Body
   const newObj = formatObj(obj, controller)
   // debugger
   const config = {
@@ -48,7 +49,8 @@ const create = (obj, controller) => {
     .then(obj => renderShow(obj))
     .catch(err => console.log(err))
 }
-
+// GENERATES NEW INSTANCE OF RESERVATION 
+// WHEN CREATED BY USER 
 const generator = (json) => {
   // debugger
   if (json.data.type === "reservation") {
@@ -78,26 +80,27 @@ const fetchAllData = () => {
     .then(res => res.json())
     .then(json => generateReservations(json))
 }
-
+// POPULATES ITEMS GLOBAL ARRAY
 const generateItems = (json) => {
   ITEMS = json.data.map(item => new Item(item))
 }
-
+// POPULATES RESERVATIONS GLOBAL ARRAY
 const generateReservations = (json) => {
   RESERVATIONS = json.data.map(reservation => new Reservation(reservation))
 }
-
+// CLEARS ALL CHILDREN OF ROOT DIV
 const clearContent = () => {
   Array.from(root.children).forEach(e => e.remove())
 }
 
 // EVENT LISTENERS
+// ITEMS INDEX NAV
 document.querySelector('#items-link').addEventListener('click', e => {
   // console.log('clicked items nav')
   clearContent()
   Item.renderAll()
 })
-
+// RESERVATIONS INDEX NAV
 document.querySelector('#reservations-link').addEventListener('click', e => {
   clearContent()
   Reservation.renderAll()
