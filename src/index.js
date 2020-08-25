@@ -61,6 +61,28 @@ const generator = (json) => {
   }
 }
 
+const destroy = e => {
+  const controller = Object.keys(e.target.dataset)[0].split("Id")[0] + "s"
+  const id = Object.values(e.target.dataset)[0]
+  // remove from DOM
+  document.getElementById(id).remove()
+
+  // remove from global object
+  const index = RESERVATIONS.findIndex(r => r.id === id)
+  RESERVATIONS.splice(index, 1)
+  config = {
+    method: "delete",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
+  }
+  fetch(`${BASE_URL}/reservations/${id}`, config)
+    .then(res => res.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err))
+}
+
 // RENDERS SHOW PAGE FOR NEWLY CREATED RESERVATION
 const renderShow = obj => {
   if (obj.constructor === Reservation) {
@@ -96,7 +118,6 @@ const clearContent = () => {
 // EVENT LISTENERS
 // ITEMS INDEX NAV
 document.querySelector('#items-link').addEventListener('click', e => {
-  // console.log('clicked items nav')
   clearContent()
   Item.renderAll()
 })
