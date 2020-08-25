@@ -299,7 +299,7 @@ class Reservation {
     resNumItems.innerText = this.numItems
     deleteBtn.classList.add('btn', 'btn-sm', 'btn-danger')
     deleteBtn.innerText = "Delete"
-    deleteBtn.dataset.id = this.id
+    deleteBtn.dataset.reservationId = this.id
     viewBtn.innerText = 'View'
     viewBtn.classList.add('btn', 'btn-sm', 'btn-secondary')
     viewBtn.dataset.id = this.id
