@@ -280,7 +280,7 @@ class Reservation {
       const id = e.target.dataset.id
       clearContent()
       const reservation = RESERVATIONS.find(r => r.id === id)
-      render(reservation)
+      Reservation.render(reservation)
       // fetch(`http://127.0.0.1:3000/api/v1/reservations/${id}`)
       //   .then(res => res.json())
       //   .then(json => Reservation.renderFromJson(json))
