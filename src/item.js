@@ -74,6 +74,7 @@ class Item {
       button.addEventListener('click', e => {
         e.preventDefault()
         const allChecks = Array.from(document.querySelectorAll('input'))
+        clearContent()
         const filteredChecks = allChecks.filter(e => e.checked)
         const itemIds = filteredChecks.map(e => e.id)
         // Reservation.create(itemIds)
