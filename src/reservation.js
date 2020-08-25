@@ -109,8 +109,10 @@ class Reservation {
       })
     }
 
-    const reservation = new Reservation(json.data)
-    const items = Item.generateItems(json)
+    const reservation = obj
+    const items = ITEMS.filter((i) => {
+      return reservation.itemIds.includes(i.id)
+    })
 
     // DECLARATIONS + ASSIGNMENTS
     // ROWS
