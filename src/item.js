@@ -1,6 +1,5 @@
 class Item {
   constructor(obj) {
-    // debugger
     this.id = obj.id
     this.title = obj.attributes.title
     this.description = obj.attributes.description
@@ -15,25 +14,7 @@ class Item {
     // debugger
   }
 
-  static generateItems(json) {
-    return !!json.included ? json.included.map(item => new Item(item)) : json.data.map(item => new Item(item))
-  }
-
-  static getAll(e) {
-    if (e) e.preventDefault()
-
-    Array.from(root.children).forEach(e => e.remove())
-
-    if (document.querySelector('#reservations-table')) document.querySelector('#reservations-table').remove()
-    if (!document.getElementById('items-table')) {
-      fetch('http://127.0.0.1:3000/api/v1/items')
-        .then(res => res.json())
-        .then(json => Item.generateItems(json))
-        .then(items => Item.renderAll(items))
-        // .catch(err => document.write(err))
-    }
-  }
-
+  // RENDERS ITEMS INDEX
   static renderAll() {
     // TABLE
     // VARIABLE DECLARATION/ASSIGNMENT
@@ -94,7 +75,8 @@ class Item {
         const allChecks = Array.from(document.querySelectorAll('input'))
         const filteredChecks = allChecks.filter(e => e.checked)
         const itemIds = filteredChecks.map(e => e.id)
-        Reservation.create(itemIds)
+        // Reservation.create(itemIds)
+        create(itemIds, "reservations")
       })
 
       form.appendChild(button)
@@ -132,7 +114,6 @@ class Item {
     itemIsAvailable.innerText = this.isAvailable
     itemSerial.innerText = this.serialNumber
 
-
     // APPENDS FOR DAYS
     tbody.appendChild(tr)
     tr.appendChild(th)
@@ -143,6 +124,4 @@ class Item {
     tr.appendChild(itemIsAvailable)
     tr.appendChild(itemSerial)
   }
-
-
 }
