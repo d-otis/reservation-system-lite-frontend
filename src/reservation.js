@@ -64,6 +64,7 @@ class Reservation {
         removeBtn.classList.add('btn', 'btn-danger', 'btn-sm')
         // const ids = [1,2,3]
 
+        // MOVE THIS EVENT LISTNER DEF TO INDEX JS
         removeBtn.addEventListener('click', function(e) {
           const itemId = e.target.dataset.id
           const updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
@@ -76,6 +77,7 @@ class Reservation {
             },
             body: JSON.stringify({"reservation": {"item_ids": updatedItemIds}})
           }
+          // MAKE THIS A GENERIC PATCH FUNCTION IN INDEX JS
           fetch(`http://127.0.0.1:3000/api/v1/reservations/${reservation.id}`, config)
             .then(res => res.json())
             .then(json => renderAlert(json))
