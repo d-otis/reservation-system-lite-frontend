@@ -8,10 +8,6 @@ root.classList.add('container-fluid')
 
 Navbar.render()
 
-// FOR DEV ONLY
-// Item.getAll()
-// Reservation.getAll()
-
 const create = (obj, controller) => {
   // ITEM
   const formattedObj = (obj, controller) => {
