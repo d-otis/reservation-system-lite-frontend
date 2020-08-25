@@ -292,6 +292,7 @@ class Reservation {
     deleteBtn.addEventListener('click', destroy)
 
     // ELEMENT ATTRIBUTES/PROPERTIES
+    tr.id = this.id
     thResId.scope = 'row'
     thResId.innerText = this.id
     resNotes.innerText = this.notes
