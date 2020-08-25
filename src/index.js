@@ -103,6 +103,5 @@ document.querySelector('#reservations-link').addEventListener('click', e => {
   Reservation.renderAll()
 })
 
-
-// MAIN APP CALL!
+// MAIN API CALL!
 fetchAllData()
