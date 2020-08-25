@@ -8,27 +8,8 @@ class Reservation {
     this.itemIds = obj.relationships.items.data.map(e => e.id)
   }
 
-  static create(itemIds) {
-
-    const config = {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({"reservation": {"item_ids": itemIds}})
-    }
-
-    document.querySelector('form').remove()
-
-    fetch('http://127.0.0.1:3000/api/v1/reservations', config)
-      .then(res => res.json())
-      .then(json => Reservation.renderFromJson(json))
-      .catch(err => console.log(err))
-  }
-
-  static renderFromJson(json) {
-
+  // RENDERS RESERVATION SHOW PAGE
+  static render(obj) {
     function appendItemsTableTo(el, items) {
       // DECLARATIONS + ASSIGMENTS
       const table = document.createElement('table')
@@ -232,23 +213,8 @@ class Reservation {
     notesTextAreaRow.appendChild(notesTextAreaCol)
   }
 
-  static getAll(e) {
-    function generateReservations(json) {
-      return json.data.map(reservation => new Reservation(reservation))
-    }
-
-    if (e) e.preventDefault()
-    Array.from(root.children).forEach(e => e.remove())
-
-    if (!document.querySelector('#reservations-table')) {
-      fetch('http://127.0.0.1:3000/api/v1/reservations/')
-      .then(res => res.json())
-      .then(json => generateReservations(json))
-      .then(reservations => Reservation.renderAll(reservations))
-      .catch(err => console.log(err))
-    }
-  }
-
+  // RENDERS TABLE HEADER FOR RESERVATION INDEX 
+  // THEN ITERATES OF RESERVATIONS and CALLS instance.render
   static renderAll() {
     // DECLARATIONS + ASSIGNMENTS
     const table = document.createElement("table")
@@ -337,13 +303,5 @@ class Reservation {
     tr.appendChild(resDeleteTd)
     resShowTd.appendChild(viewBtn)
     resDeleteTd.appendChild(deleteBtn)
-  }
-
-  update = function() {
-    // Update Reservation
-  }
-
-  destroy = function() {
-    //destroy reservation
   }
 }
