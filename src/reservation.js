@@ -289,6 +289,8 @@ class Reservation {
       //   .catch(err => console.log(err))
     })
 
+    deleteBtn.addEventListener('click', destroy)
+
     // ELEMENT ATTRIBUTES/PROPERTIES
     thResId.scope = 'row'
     thResId.innerText = this.id
