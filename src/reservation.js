@@ -257,11 +257,12 @@ class Reservation {
     table.appendChild(tbody)
 
     for (const reservation of RESERVATIONS) {
-      reservation.render(tbody)
+      reservation.renderRow(tbody)
     }
   }
 
-  render = function(tbody) {
+  // RENDERS SINGLE ROW OF RESERVATION INDEX
+  renderRow = function(tbody) {
     // DECLARATIONS + ASSIGNMENTS
     const tr = document.createElement('tr')
     const thResId = document.createElement('th')
