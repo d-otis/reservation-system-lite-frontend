@@ -90,7 +90,7 @@ const renderShow = obj => {
   }
 }
 
-// FETCH THE WHOLE SHEBANG
+// FETCH THE WHOLE DANG API
 const fetchAllData = () => {
   // Items
   fetch(`${BASE_URL}/items`)
