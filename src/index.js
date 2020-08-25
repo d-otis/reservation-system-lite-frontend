@@ -87,19 +87,19 @@ const generateReservations = (json) => {
   RESERVATIONS = json.data.map(reservation => new Reservation(reservation))
 }
 
+const clearContent = () => {
+  Array.from(root.children).forEach(e => e.remove())
+}
+
 // EVENT LISTENERS
 document.querySelector('#items-link').addEventListener('click', e => {
   // console.log('clicked items nav')
-  while (root.children.length > 0) {
-    root.firstChild.remove()
-  }
+  clearContent()
   Item.renderAll()
 })
 
 document.querySelector('#reservations-link').addEventListener('click', e => {
-  while (root.children.length > 0) {
-    root.firstChild.remove()
-  }
+  clearContent()
   Reservation.renderAll()
 })
 
