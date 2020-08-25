@@ -6,7 +6,7 @@ class Item {
     this.serialNumber = obj.attributes.serial_number
     this.isAvailable = obj.attributes.is_available
   }
-
+  // TRUNCATES DESCRIPTION
   get shortDescription() {
     return this.description.split(". ").map((x, index) => {
       return index <= 1 ? x : ''
@@ -64,7 +64,7 @@ class Item {
     for (const item of ITEMS) {
       item.render(tbody)
     }
-
+    // CREATE + RENDER "CREATE RESERVATION" BUTTON
     function renderCreateReservationBtn() {
       const button = document.createElement('button')
       button.classList.add('btn', 'btn-block', 'btn-secondary', 'mb-5')
