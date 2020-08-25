@@ -216,7 +216,8 @@ class Reservation {
   }
 
   // RENDERS TABLE HEADER FOR RESERVATION INDEX 
-  // THEN ITERATES OF RESERVATIONS and CALLS instance.render
+  // THEN ITERATES OVER RESERVATIONS 
+  // and CALLS reservationInstance.render() on each
   static renderAll() {
     // DECLARATIONS + ASSIGNMENTS
     const table = document.createElement("table")
