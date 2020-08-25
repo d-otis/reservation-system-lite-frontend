@@ -60,6 +60,7 @@ class Item {
     tableHeadersRow.appendChild(headerSerial)
     table.appendChild(tbody)
 
+    // ITERATE OVER ITEMS AND RENDER THEIR ROWS
     for (const item of ITEMS) {
       item.render(tbody)
     }
@@ -84,7 +85,8 @@ class Item {
 
     renderCreateReservationBtn()
   }
-
+  
+  // RENDERS ITEM ROW ON ITEM INDEX PAGE
   render = function(tbody) {
     // DECLARATIONS AND ASSIGNMENTS
     const tr = document.createElement('tr')
