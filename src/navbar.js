@@ -1,6 +1,7 @@
 class Navbar {
   constructor() {}
 
+  // RENDERS THE NAVBAR, YO!
   static render() {
     // DECLARATIONS + ASSIGNMENTS
     const nav = document.createElement('nav')
