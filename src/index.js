@@ -10,7 +10,7 @@ Navbar.render()
 
 const create = (obj, controller) => {
   // ITEM
-  const formattedObj = (obj, controller) => {
+  const formatObj = (obj, controller) => {
     // debugger
     if (controller === "items") {
       // debugger
@@ -23,11 +23,15 @@ const create = (obj, controller) => {
         }
       }
     } else {
-      debugger
+      return {
+        reservation: {
+          item_ids: obj
+        }
+      }
     }
   }
   // 
-  const newObj = formattedObj(obj, controller)
+  const newObj = formatObj(obj, controller)
   // debugger
   const config = {
     method: "post",
@@ -41,22 +45,26 @@ const create = (obj, controller) => {
   fetch(`${BASE_URL}/${controller}`, config)
     .then(res => res.json())
     .then(json => generator(json))
+    .then(obj => renderShow(obj))
     .catch(err => console.log(err))
 }
 
 const generator = (json) => {
-  // the JSON response generated from Rails API
-  // need to generate it according to what item it is
-  console.log(json)
+  // debugger
+  if (json.data.type === "reservation") {
+    RESERVATIONS.push(new Reservation(json.data))
+    return RESERVATIONS.slice(-1)[0]
+  } else {
+    debugger
+  }
 }
 
-const exampleItem = {
-  title: 'the title',
-  description: 'the',
-  serial_number: "5-+949964+49",
-  is_available: true
+// RENDERS SHOW PAGE FOR NEWLY CREATED RESERVATION
+const renderShow = obj => {
+  if (obj.constructor === Reservation) {
+    Reservation.render(obj)
+  }
 }
-
 
 // FETCH THE WHOLE SHEBANG
 const fetchAllData = () => {
