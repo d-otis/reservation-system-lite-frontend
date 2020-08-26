@@ -13,6 +13,7 @@ class Reservation {
 
   // RENDERS RESERVATION SHOW PAGE
   static render(obj) {
+    // APPEND ITEM ROWS TO TBODY
     function appendItemsTableTo(el, items) {
       // DECLARATIONS + ASSIGMENTS
       const table = document.createElement('table')
@@ -45,6 +46,7 @@ class Reservation {
       tr.appendChild(headerRemove)
       table.appendChild(tbody)
 
+      // RENDER ITEM ROWS
       for (const item of items) {
         // debugger
         const tr = document.createElement('tr')
