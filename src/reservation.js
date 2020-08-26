@@ -128,6 +128,7 @@ class Reservation {
     const tableCol = document.createElement('div')
     const notesHeaderCol = document.createElement('div')
     const notesTextAreaCol = document.createElement('div')
+    const form = document.createElement('form')
     // CONTENT
     // Reservation Header
     const h1 = document.createElement('h1')
@@ -149,21 +150,39 @@ class Reservation {
     const h3 = document.createElement('h3')
     h3.innerText = "Notes"
     notesHeaderCol.appendChild(h3)
+    // Notes Form Parent
+    // form.classList.add('form-inline')
     // Notes Textarea
     const textarea = document.createElement('textarea')
+    const saveButton = document.createElement('input')
     const formGroup = document.createElement('div')
 
+    // form.method = "PATCH"
+    // form.action = `./reservations/${reservation.id}`
+    form.appendChild(formGroup)
+
     formGroup.classList.add('form-group')
-    notesTextAreaCol.appendChild(formGroup)
     formGroup.appendChild(textarea)
+    // formGroup.appendChild(saveButton)
+
+    notesTextAreaCol.appendChild(form)
+    
     textarea.rows = "5"
+    textarea.cols = "100"
     textarea.classList.add('form-control')
     textarea.dataset.id = reservation.id
     textarea.value = reservation.notes
 
-    textarea.addEventListener('change', e => {
-      const id = e.target.dataset.id
-      const note = e.target.value
+    saveButton.value = "Save"
+    saveButton.type = "submit"
+    saveButton.classList.add('btn', 'btn-primary')
+
+    form.addEventListener('submit', e => {
+      // debugger
+      if (e) e.preventDefault()
+      
+      const id = reservation.id
+      const note = e.target[0].value
       const config = {
         method: "PATCH",
         headers: {
@@ -214,9 +233,10 @@ class Reservation {
     root.appendChild(notesTextAreaRow)
     notesHeaderRow.appendChild(notesHeaderCol)
     notesTextAreaRow.appendChild(notesTextAreaCol)
+    form.appendChild(saveButton)
   }
 
-  // RENDERS TABLE HEADER FOR RESERVATION INDEX 
+  // RENDERS TABLE HEADER FOR *RESERVATION INDEX*
   // THEN ITERATES OVER RESERVATIONS 
   // and CALLS reservationInstance.render() on each
   static renderAll() {
