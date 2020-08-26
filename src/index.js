@@ -70,6 +70,7 @@ const destroy = e => {
   // remove from global object
   const index = RESERVATIONS.findIndex(r => r.id === id)
   RESERVATIONS.splice(index, 1)
+  
   config = {
     method: "delete",
     headers: {
