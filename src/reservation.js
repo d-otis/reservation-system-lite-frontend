@@ -104,19 +104,6 @@ class Reservation {
       el.appendChild(table)
     }
 
-    // function renderAlert(json) {
-    //   const alert = document.createElement('div')
-    //   alert.classList.add('alert', 'alert-warning', 'text-center', 'animate__animated', 'animate__fadeInDown')
-    //   alert.role = 'alert'
-    //   alert.innerText = json.message
-    //   root.prepend(alert)
-    //   alert.addEventListener('animationend', function() {
-    //     event.target.classList.remove('animate__fadeInDown')
-    //     event.target.classList.add('animate__fadeOutUp', 'animate__delay-2s')
-    //     event.target.addEventListener('animationend', (e) => e.target.remove())
-    //   })
-    // }
-
     const reservation = obj
     const items = ITEMS.filter((i) => {
       return reservation.itemIds.includes(i.id)
