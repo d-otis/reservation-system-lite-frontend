@@ -71,6 +71,8 @@ class Reservation {
           const itemId = e.target.dataset.id
           const updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
 
+          RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
+
           const config = {
             method: "PATCH",
             headers: {
