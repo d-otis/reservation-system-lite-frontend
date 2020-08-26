@@ -70,7 +70,7 @@ const destroy = e => {
   // remove from global object
   const index = RESERVATIONS.findIndex(r => r.id === id)
   RESERVATIONS.splice(index, 1)
-  
+
   config = {
     method: "delete",
     headers: {
@@ -114,6 +114,20 @@ const generateReservations = (json) => {
 // CLEARS ALL CHILDREN OF ROOT DIV
 const clearContent = () => {
   Array.from(root.children).forEach(e => e.remove())
+}
+
+// RENDER USER ALERTS
+function renderAlert(json) {
+  const alert = document.createElement('div')
+  alert.classList.add('alert', 'alert-warning', 'text-center', 'animate__animated', 'animate__fadeInDown')
+  alert.role = 'alert'
+  alert.innerText = json.message
+  root.prepend(alert)
+  alert.addEventListener('animationend', function() {
+    event.target.classList.remove('animate__fadeInDown')
+    event.target.classList.add('animate__fadeOutUp', 'animate__delay-2s')
+    event.target.addEventListener('animationend', (e) => e.target.remove())
+  })
 }
 
 // EVENT LISTENERS
