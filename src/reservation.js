@@ -62,7 +62,6 @@ class Reservation {
         removeBtn.type = "button"
         removeBtn.dataset.id = item.id
         removeBtn.classList.add('btn', 'btn-danger', 'btn-sm')
-        // const ids = [1,2,3]
 
         // MOVE THIS EVENT LISTNER DEF TO INDEX JS
         removeBtn.addEventListener('click', function(e) {
@@ -283,10 +282,6 @@ class Reservation {
       clearContent()
       const reservation = RESERVATIONS.find(r => r.id === id)
       Reservation.render(reservation)
-      // fetch(`http://127.0.0.1:3000/api/v1/reservations/${id}`)
-      //   .then(res => res.json())
-      //   .then(json => Reservation.renderFromJson(json))
-      //   .catch(err => console.log(err))
     })
 
     deleteBtn.addEventListener('click', destroy)
