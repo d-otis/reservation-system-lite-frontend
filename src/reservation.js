@@ -188,6 +188,9 @@ class Reservation {
       
       const id = reservation.id
       const note = e.target[0].value
+      // update the global array
+      RESERVATIONS.find(r => r === reservation).notes = note
+
       const config = {
         method: "PATCH",
         headers: {
