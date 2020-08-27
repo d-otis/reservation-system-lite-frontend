@@ -53,12 +53,15 @@ const create = (obj, controller) => {
 // UPDATE!
 const patch = (resource, e) => {
   let updatedItemIds
+  let updateNotes
+
   if (e.type === 'click') {
     
     const reservation = resource
     const itemId = e.target.dataset.itemId
     updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
     RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
+    updatedNotes = reservation.notes
   } else if (e === 'submit') {
     
   }
