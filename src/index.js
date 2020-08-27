@@ -62,8 +62,11 @@ const patch = (resource, e) => {
     updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
     RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
     updatedNotes = reservation.notes
-  } else if (e === 'submit') {
-    
+  } else if (e.type === 'submit') {
+    reservation = resource
+    updatedNotes = e.target[0].value
+    updatedItemIds = reservation.itemIds
+    RESERVATIONS.find(r => r === reservation).notes = updatedNotes
   }
 
     
