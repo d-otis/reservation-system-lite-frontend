@@ -69,29 +69,30 @@ class Reservation {
         removeBtn.dataset.reservationId = reservation.id
         removeBtn.classList.add('btn', 'btn-danger', 'btn-sm')
 
-        // MOVE THIS EVENT LISTNER DEF TO INDEX JS
-        removeBtn.addEventListener('click', function(e) {
-          const itemId = e.target.dataset.id
-          const updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
+      
+        // removeBtn.addEventListener('click', function(e) {
+        //   const itemId = e.target.dataset.id
+        //   const updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
 
-          RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
+        //   RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
 
-          const config = {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json"
-            },
-            body: JSON.stringify({"reservation": {"item_ids": updatedItemIds}})
-          }
-          // MAKE THIS A GENERIC PATCH FUNCTION IN INDEX JS
-          fetch(`http://127.0.0.1:3000/api/v1/reservations/${reservation.id}`, config)
-            .then(res => res.json())
-            .then(json => renderAlert(json))
-            .catch(err => console.log(err))
+        //   const config = {
+        //     method: "PATCH",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       "Accept": "application/json"
+        //     },
+        //     body: JSON.stringify({"reservation": {"item_ids": updatedItemIds}})
+        //   }
+        //   // MAKE THIS A GENERIC PATCH FUNCTION IN INDEX JS
+        //   fetch(`http://127.0.0.1:3000/api/v1/reservations/${reservation.id}`, config)
+        //     .then(res => res.json())
+        //     .then(json => renderAlert(json))
+        //     .catch(err => console.log(err))
 
-          document.getElementById(itemId).remove()
-        }.bind(reservation))
+        //   document.getElementById(itemId).remove()
+        // }.bind(reservation))
+        removeBtn.addEventListener('click', e => patch(reservation, e))
 
         tr.appendChild(id)
         tr.appendChild(title)
