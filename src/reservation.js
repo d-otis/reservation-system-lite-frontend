@@ -121,6 +121,9 @@ class Reservation {
     addItemsButton.type = "button"
     addItemsButton.classList.add('btn', 'btn-sm', 'btn-primary', 'ml-3', 'mb-2')
     addItemsButton.innerText = "Add Items"
+    addItemsButton.dataset.toggle = "modal"
+    addItemsButton.dataset.target = "#items-modal"
+
     itemsHeaderCol.appendChild(addItemsButton)
     // Table Proper
 
