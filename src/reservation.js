@@ -174,6 +174,7 @@ class Reservation {
     saveButton.dataset.reservationId = reservation.id
     saveButton.classList.add('btn', 'btn-primary')
 
+    // TEXT AREA CHANGES
     form.addEventListener('submit', e => {
       // debugger
       if (e) e.preventDefault()
