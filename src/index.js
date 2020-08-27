@@ -119,7 +119,7 @@ const destroy = e => {
       "Accept": "application/json"
     }
   }
-  fetch(`${BASE_URL}/reservations/${id}`, config)
+  fetch(`${BASE_URL}/${controller}/${id}`, config)
     .then(res => res.json())
     .then(json => console.log(json))
     .catch(err => console.log(err))
