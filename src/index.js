@@ -56,7 +56,9 @@ const patch = (resource, e) => {
   let updateNotes
 
   if (e.type === 'click') {
-    
+    // in this case we are removing an item id individually
+    // so we can just pass in the prexisting notes field 
+    // fromt he global reservation array
     const reservation = resource
     const itemId = e.target.dataset.itemId
     updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
