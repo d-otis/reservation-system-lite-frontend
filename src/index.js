@@ -86,7 +86,8 @@ const patch = (resource, e) => {
 
   const requestBody = {
     reservation: {
-      item_ids: updatedItemIds
+      item_ids: updatedItemIds,
+      notes: updatedNotes
     }
   }
 
