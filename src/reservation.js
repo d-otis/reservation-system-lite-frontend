@@ -419,8 +419,4 @@ class Reservation {
     resShowTd.appendChild(viewBtn)
     resDeleteTd.appendChild(deleteBtn)
   }
-
-  renderAddItemsModal = function() {
-
-  }
 }
