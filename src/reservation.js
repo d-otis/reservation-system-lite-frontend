@@ -65,7 +65,8 @@ class Reservation {
         removeTd.appendChild(removeBtn)
         removeBtn.innerText = "remove"
         removeBtn.type = "button"
-        removeBtn.dataset.id = item.id
+        removeBtn.dataset.itemId = item.id
+        removeBtn.dataset.reservationId = reservation.id
         removeBtn.classList.add('btn', 'btn-danger', 'btn-sm')
 
         // MOVE THIS EVENT LISTNER DEF TO INDEX JS
