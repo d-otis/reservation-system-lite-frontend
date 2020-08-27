@@ -171,6 +171,7 @@ class Reservation {
 
     saveButton.value = "Save"
     saveButton.type = "submit"
+    saveButton.dataset.reservationId = reservation.id
     saveButton.classList.add('btn', 'btn-primary')
 
     form.addEventListener('submit', e => {
