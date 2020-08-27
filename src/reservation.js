@@ -87,6 +87,126 @@ class Reservation {
       el.appendChild(table)
     }
 
+    function renderItemsModal() {
+      // DECLARATIONS + ASSIGNMENTS
+      const mainModalDiv = document.createElement('div')
+      const modalDialogDiv = document.createElement('div')
+      const modalContentDiv = document.createElement('div')
+      const modalHeaderDiv = document.createElement('div')
+      const modalTitleH5 = document.createElement('h5')
+      const closeButton = document.createElement('button')
+      const span = document.createElement('span')
+      const modalBody = document.createElement('div')
+      const selectTable = document.createElement('table')
+      const selectThead = document.createElement("thead")
+      const selectTr = document.createElement('tr')
+      const selectThInHead = document.createElement('th')
+      const itemThInHead = document.createElement('th')
+      const modalFooter = document.createElement('div')
+      const cancelButton = document.createElement('button')
+      const addItemsSave = document.createElement('button')
+      // const modalTbody = document.createElement('tbody')
+
+
+      // ATTRIBUTES
+      mainModalDiv.classList.add("modal", "fade")
+      mainModalDiv.id = "items-modal"
+      mainModalDiv.tabIndex = "-1"
+      mainModalDiv.ariaRoleDescription = "dialog"
+      mainModalDiv.ariaLabelledBy = "select-modal-title"
+      mainModalDiv.ariaHidden = "true"
+
+      modalDialogDiv.classList.add("modal-dialog", "modal-dialog-centered")
+      modalDialogDiv.ariaRoleDescription = "document"
+
+      modalContentDiv.classList.add("modal-content")
+
+      modalHeaderDiv.classList.add("modal-header")
+
+      modalTitleH5.classList.add("modal-title")
+      modalTitleH5.id = "select-modal-title"
+      modalTitleH5.innerText = "Select Items to Add to Reservation"
+
+      closeButton.classList.add("close")
+      closeButton.type = "button"
+      closeButton.dataset.dismiss = "modal"
+      closeButton.areaLabel = "Close"
+
+      span.ariaHidden = "true"
+      span.innerText = "&times;"
+
+      modalBody.classList.add("modal-body")
+
+      selectTable.classList.add('table', 'table-hover')
+
+      selectThInHead.scope = "col"
+      selectThInHead.innerText = "Select"
+
+      itemThInHead.scope = "col"
+      itemThInHead.innerText = "Item"
+
+      modalFooter.classList.add('modal-footer')
+
+      cancelButton.type = "button"
+      cancelButton.dataset.dismiss = "modal"
+      cancelButton.classList.add('btn', 'btn-secondary')
+      cancelButton.innerText = "Cancel"
+
+      addItemsSave.type = "button"
+      addItemsSave.classList.add('btn', 'btn-primary')
+      addItemsSave.innerText = "Add Items"
+
+      // APPENDS
+      mainModalDiv.appendChild(modalDialogDiv)
+      modalDialogDiv.appendChild(modalContentDiv)
+      modalContentDiv.appendChild(modalHeaderDiv)
+      modalHeaderDiv.appendChild(modalTitleH5)
+      modalHeaderDiv.appendChild(closeButton)
+      closeButton.appendChild(span)
+      modalContentDiv.appendChild(modalBody)
+      modalBody.appendChild(selectTable)
+      selectTable.appendChild(selectThead)
+      selectThead.appendChild(selectTr)
+      selectTr.appendChild(selectThInHead)
+      selectTr.appendChild(itemThInHead)
+      modalContentDiv.appendChild(modalFooter)
+      modalFooter.appendChild(cancelButton)
+      modalFooter.appendChild(addItemsSave)
+      // selectTable.appendChild(modalTbody)
+
+      function renderTbody() {
+        // accepts a list of items 
+        // not included in this reservation!
+        const tbody = document.createElement('tbody')
+        const availableItems = ITEMS.filter(item => !reservation.itemIds.includes(item.id))
+        for (const item of availableItems) {
+          const tr = document.createElement('tr')
+          const th = document.createElement('th')
+          const formGroup = document.createElement('div')
+          const check = document.createElement('input')
+          const td = document.createElement('td')
+
+          th.scope = "row"
+          formGroup.classList.add('form-group', 'form-check')
+          check.type = "checkbox"
+          check.classList.add('form-check-input')
+          check.dataset.itemId = item.id
+          td.innerText = item.title
+          
+          tr.appendChild(th)
+          th.appendChild(formGroup)
+          formGroup.appendChild(check)
+          tr.appendChild(td)
+
+          tbody.appendChild(tr)
+        }
+        // returns tbody
+        return tbody
+      }
+      selectTable.appendChild(renderTbody())
+      return mainModalDiv
+    }
+
     const reservation = obj
     const items = ITEMS.filter((i) => {
       return reservation.itemIds.includes(i.id)
@@ -200,6 +320,10 @@ class Reservation {
     notesHeaderRow.appendChild(notesHeaderCol)
     notesTextAreaRow.appendChild(notesTextAreaCol)
     form.appendChild(saveButton)
+
+    // RENDER MODAL
+    // root.appendChild(renderItemsModal())
+    document.querySelector('body').appendChild(renderItemsModal())
   }
 
   // RENDERS TABLE HEADER FOR *RESERVATION INDEX*
