@@ -49,7 +49,6 @@ class Reservation {
 
       // RENDER ITEM ROWS
       for (const item of items) {
-        // debugger
         const tr = document.createElement('tr')
         const id = document.createElement("th")
         const title = document.createElement("td")
@@ -70,29 +69,6 @@ class Reservation {
         removeBtn.dataset.reservationId = reservation.id
         removeBtn.classList.add('btn', 'btn-danger', 'btn-sm')
 
-      
-        // removeBtn.addEventListener('click', function(e) {
-        //   const itemId = e.target.dataset.id
-        //   const updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
-
-        //   RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
-
-        //   const config = {
-        //     method: "PATCH",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //       "Accept": "application/json"
-        //     },
-        //     body: JSON.stringify({"reservation": {"item_ids": updatedItemIds}})
-        //   }
-        //   // MAKE THIS A GENERIC PATCH FUNCTION IN INDEX JS
-        //   fetch(`http://127.0.0.1:3000/api/v1/reservations/${reservation.id}`, config)
-        //     .then(res => res.json())
-        //     .then(json => renderAlert(json))
-        //     .catch(err => console.log(err))
-
-        //   document.getElementById(itemId).remove()
-        // }.bind(reservation))
         removeBtn.addEventListener('click', e => {
           const rowId = e.target.dataset.itemId
           document.getElementById(rowId).remove()
@@ -130,6 +106,7 @@ class Reservation {
     const notesHeaderCol = document.createElement('div')
     const notesTextAreaCol = document.createElement('div')
     const form = document.createElement('form')
+
     // CONTENT
     // Reservation Header
     const h1 = document.createElement('h1')
@@ -152,19 +129,16 @@ class Reservation {
     h3.innerText = "Notes"
     notesHeaderCol.appendChild(h3)
     // Notes Form Parent
-    // form.classList.add('form-inline')
+
     // Notes Textarea
     const textarea = document.createElement('textarea')
     const saveButton = document.createElement('input')
     const formGroup = document.createElement('div')
 
-    // form.method = "PATCH"
-    // form.action = `./reservations/${reservation.id}`
     form.appendChild(formGroup)
 
     formGroup.classList.add('form-group')
     formGroup.appendChild(textarea)
-    // formGroup.appendChild(saveButton)
 
     notesTextAreaCol.appendChild(form)
     
@@ -182,7 +156,7 @@ class Reservation {
     // TEXT AREA CHANGES
     form.addEventListener('submit', e => {
       if (e) e.preventDefault()
-        
+
       patch(reservation, e)
     })
 
