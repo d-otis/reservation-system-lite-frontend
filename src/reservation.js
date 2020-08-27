@@ -104,9 +104,8 @@ class Reservation {
       const itemThInHead = document.createElement('th')
       const modalFooter = document.createElement('div')
       const cancelButton = document.createElement('button')
-      const addItemsSave = document.createElement('button')
-      // const modalTbody = document.createElement('tbody')
-
+      const addItemsSave = document.createElement('input')
+      const addItemsForm = document.createElement('form')
 
       // ATTRIBUTES
       mainModalDiv.classList.add("modal", "fade")
@@ -152,9 +151,9 @@ class Reservation {
       cancelButton.classList.add('btn', 'btn-secondary')
       cancelButton.innerText = "Cancel"
 
-      addItemsSave.type = "button"
+      addItemsSave.type = "submit"
       addItemsSave.classList.add('btn', 'btn-primary')
-      addItemsSave.innerText = "Add Items"
+      addItemsSave.value = "Add Items"
 
       // APPENDS
       mainModalDiv.appendChild(modalDialogDiv)
