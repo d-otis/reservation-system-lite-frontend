@@ -181,26 +181,9 @@ class Reservation {
 
     // TEXT AREA CHANGES
     form.addEventListener('submit', e => {
-      // debugger
       if (e) e.preventDefault()
-      
-      const id = reservation.id
-      const note = e.target[0].value
-      // update the global array
-      RESERVATIONS.find(r => r === reservation).notes = note
-
-      const config = {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({"reservation": {"notes": note}})
-      }
-      fetch(`http://127.0.0.1:3000/api/v1/reservations/${id}`, config)
-        .then(res => res.json())
-        .then(json => renderAlert(json))
-        .catch(err => console.log(err))
+        
+      patch(reservation, e)
     })
 
     // SET ATTRIBUTES/PROPERTIES
