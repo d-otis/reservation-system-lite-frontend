@@ -93,7 +93,11 @@ class Reservation {
 
         //   document.getElementById(itemId).remove()
         // }.bind(reservation))
-        removeBtn.addEventListener('click', e => patch(reservation, e))
+        removeBtn.addEventListener('click', e => {
+          const rowId = e.target.dataset.itemId
+          document.getElementById(rowId).remove()
+          patch(reservation, e)
+        })
 
         tr.appendChild(id)
         tr.appendChild(title)
