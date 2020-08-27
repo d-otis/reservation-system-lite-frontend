@@ -69,22 +69,6 @@ const patch = (resource, e) => {
     RESERVATIONS.find(r => r === reservation).notes = updatedNotes
   }
 
-    
-
-  
-  // NEED:
-    // - reservation.id
-    // - notes
-    // - item_ids
-  // needs to be passed what is changing
-  // what's the difference between the two:
-    // {reservation: {notes: 'bloop bloop bloop'}}
-    // {reservation: {item_ids: [1,2,3]}}
-    // NEEDS TO BE COMBINED: 
-        // {reservation: {notes: 'bloop bloop, bloop', item_ids: [1,2,3]}}
-      // well since the removes are async i
-      // can just always pass in both attrs
-
   const requestBody = {
     reservation: {
       item_ids: updatedItemIds,
