@@ -54,12 +54,10 @@ const create = (obj, controller) => {
 const patch = (resource, e) => {
   let updatedItemIds
   let updateNotes
+  let reservation
 
   if (e.type === 'click') {
-    // in this case we are removing an item id individually
-    // so we can just pass in the prexisting notes field 
-    // fromt he global reservation array
-    const reservation = resource
+    reservation = resource
     const itemId = e.target.dataset.itemId
     updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
     RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
