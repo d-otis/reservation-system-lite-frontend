@@ -49,6 +49,56 @@ const create = (obj, controller) => {
     .then(obj => renderShow(obj))
     .catch(err => console.log(err))
 }
+
+// UPDATE!
+const patch = (resource, e) => {
+  let updatedItemIds
+  if (e.type === 'click') {
+    
+    const reservation = resource
+    const itemId = e.target.dataset.itemId
+    updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
+    RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
+  } else if (e === 'submit') {
+    
+  }
+
+    
+
+  
+  // NEED:
+    // - reservation.id
+    // - notes
+    // - item_ids
+  // needs to be passed what is changing
+  // what's the difference between the two:
+    // {reservation: {notes: 'bloop bloop bloop'}}
+    // {reservation: {item_ids: [1,2,3]}}
+    // NEEDS TO BE COMBINED: 
+        // {reservation: {notes: 'bloop bloop, bloop', item_ids: [1,2,3]}}
+      // well since the removes are async i
+      // can just always pass in both attrs
+
+  const requestBody = {
+    reservation: {
+      item_ids: updatedItemIds
+    }
+  }
+
+  const config = {
+    method: "patch",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(requestBody)
+  }
+
+  fetch(`${BASE_URL}/${resource.type}s/${resource.id}`, config)
+    .then(res => res.json())
+    .then(json => renderAlert(json))
+    .catch(err => console.log(err))
+}
 // GENERATES NEW INSTANCE OF RESERVATION 
 // WHEN CREATED BY USER 
 const generator = (json) => {
