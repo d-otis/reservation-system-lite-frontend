@@ -92,7 +92,7 @@ const patch = (resource, e) => {
   }
 
   const config = {
-    method: "patch",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       "Accept": "application/json"
