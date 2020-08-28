@@ -163,18 +163,14 @@ class Reservation {
       modalHeaderDiv.appendChild(closeButton)
       closeButton.appendChild(span)
       modalContentDiv.appendChild(modalBody)
-      // modalBody.appendChild(selectTable)
       addItemsForm.appendChild(selectTable)
       addItemsForm.appendChild(modalFooter)
-      // addItemsForm.appendChild(addItemsSave)
       selectTable.appendChild(selectThead)
       selectThead.appendChild(selectTr)
       selectTr.appendChild(selectThInHead)
       selectTr.appendChild(itemThInHead)
-      modalContentDiv.appendChild(modalFooter)
       modalFooter.appendChild(cancelButton)
       modalFooter.appendChild(addItemsSave)
-      // selectTable.appendChild(modalTbody)
       modalBody.appendChild(addItemsForm)
 
       function renderTbody() {
@@ -203,9 +199,10 @@ class Reservation {
 
           tbody.appendChild(tr)
         }
-        // returns tbody
+
         return tbody
       }
+
       selectTable.appendChild(renderTbody())
       return mainModalDiv
     }
