@@ -56,8 +56,14 @@ const patch = (resource, e, addedItems=null) => {
   let updateNotes
   let reservation
 
-  // Single Item Removal from Reservation
-  if (e.type === 'click') {
+  
+  if (addedItems) {
+    reservation = resource
+    updatedItemIds = resource.itemIds.concat(addedItems.map(i => i.value))
+    updatedNotes = reservation.notes
+    RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
+  } else if (e.type === 'click') {
+    // Single Item Removal from Reservation
     reservation = resource
     const itemId = e.target.dataset.itemId
     updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
