@@ -107,6 +107,18 @@ class Reservation {
       const addItemsSave = document.createElement('input')
       const addItemsForm = document.createElement('form')
 
+      addItemsForm.addEventListener('submit', e => {
+        if (e) e.preventDefault()
+
+        let itemsToAdd
+        
+        let allChecks = Array.from(e.currentTarget).filter(i => i.type === 'checkbox')
+        let newItems = allChecks.filter(i => i.checked)
+        patch(reservation, e, newItems)
+        clearContent()
+        Reservation.render(reservation)
+      })
+
       // ATTRIBUTES
       mainModalDiv.classList.add("modal", "fade")
       mainModalDiv.id = "items-modal"
