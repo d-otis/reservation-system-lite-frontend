@@ -202,6 +202,7 @@ class Reservation {
           check.type = "checkbox"
           check.classList.add('form-check-input')
           check.dataset.itemId = item.id
+          check.value = item.id
           td.innerText = item.title
           
           tr.appendChild(th)
