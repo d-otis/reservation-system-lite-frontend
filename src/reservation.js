@@ -116,6 +116,8 @@ class Reservation {
         let newItems = allChecks.filter(i => i.checked)
         patch(reservation, e, newItems)
         clearContent()
+        document.querySelector('body').classList.remove('modal-open')
+        document.querySelector('.modal-backdrop').remove()
         Reservation.render(reservation)
       })
 
