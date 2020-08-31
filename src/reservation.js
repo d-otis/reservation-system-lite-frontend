@@ -132,7 +132,7 @@ class Reservation {
       closeButton.areaLabel = "Close"
 
       span.ariaHidden = "true"
-      span.innerText = "&times;"
+      span.innerHTML = "&times;"
 
       modalBody.classList.add("modal-body")
 
