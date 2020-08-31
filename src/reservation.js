@@ -338,8 +338,7 @@ class Reservation {
     form.appendChild(saveButton)
 
     // RENDER MODAL
-    // root.appendChild(renderItemsModal())
-    document.querySelector('body').appendChild(renderItemsModal())
+    root.appendChild(renderItemsModal())
   }
 
   // RENDERS TABLE HEADER FOR *RESERVATION INDEX*
