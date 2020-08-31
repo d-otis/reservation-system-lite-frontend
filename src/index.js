@@ -56,12 +56,14 @@ const patch = (resource, e) => {
   let updateNotes
   let reservation
 
+  // Single Item Removal from Reservation
   if (e.type === 'click') {
     reservation = resource
     const itemId = e.target.dataset.itemId
     updatedItemIds = reservation.itemIds.filter(e => e !== itemId)
     RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
     updatedNotes = reservation.notes
+  // Updating of Notes field for Reservation
   } else if (e.type === 'submit') {
     reservation = resource
     updatedNotes = e.target[0].value
