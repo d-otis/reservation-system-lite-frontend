@@ -185,6 +185,7 @@ class Reservation {
       modalFooter.appendChild(addItemsSave)
       modalBody.appendChild(addItemsForm)
 
+      // Renders 'Add Items' modal
       function renderTbody() {
         // accepts a list of items 
         // not included in this reservation!
