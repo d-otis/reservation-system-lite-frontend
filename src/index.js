@@ -51,7 +51,7 @@ const create = (obj, controller) => {
 }
 
 // UPDATE!
-const patch = (resource, e) => {
+const patch = (resource, e, addedItems=null) => {
   let updatedItemIds
   let updateNotes
   let reservation
