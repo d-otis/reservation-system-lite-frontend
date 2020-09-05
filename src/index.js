@@ -8,6 +8,8 @@ root.classList.add('container-fluid')
 
 Navbar.render()
 
+Jumbotron.render()
+
 // SENDS A POST REQUEST TO PASSED IN CONTROLLER
 const create = (obj, controller) => {
   // FORMATS REQUEST BODY BASED CONTROLLER PARAMETER
