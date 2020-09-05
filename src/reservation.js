@@ -109,12 +109,7 @@ class Reservation {
 
       addItemsForm.addEventListener('submit', e => {
         if (e) e.preventDefault()
-
-        let itemsToAdd
-        
-        // let allChecks = Array.from(e.currentTarget).filter(i => i.type === 'checkbox')
-        // let newItems = allChecks.filter(i => i.checked)
-        // patch(reservation, e, newItems)
+          
         patch(reservation, e, collectCheckedItems(e.currentTarget))
         clearContent()
         document.querySelector('body').classList.remove('modal-open')
