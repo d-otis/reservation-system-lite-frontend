@@ -181,10 +181,10 @@ function renderAlert(json) {
 }
 
 const collectCheckedItems = form => {
-  let allChecks = Array.from(form).filter(i => i.type === 'checkbox')
-  let newItems = allChecks.filter(i => i.checked)
+  let checkedItemInputs = Array.from(form).filter(i => i.type === 'checkbox').filter(i => i.checked)
+  let checkedItemIds = checkedItemInputs.map(i => i.value)
   // must return array of checked input items
-  return newItems
+  return checkedItemIds
 }
 
 // EVENT LISTENERS
