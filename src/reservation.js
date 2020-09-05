@@ -2,7 +2,7 @@ class Reservation {
   constructor(obj) {
     this.type = obj.type
     this.id = obj.id
-    this.notes = obj.attributes.notes
+    this.notes = obj.attributes.notes || "Add your own notes here."
     this.inProgress = obj.attributes.in_progress
     this.isComplete = obj.attributes.is_complete
     this.itemIds = obj.relationships.items.data.map(e => e.id)
