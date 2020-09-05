@@ -179,6 +179,13 @@ function renderAlert(json) {
   })
 }
 
+const collectCheckedItems = form => {
+  let allChecks = Array.from(form).filter(i => i.type === 'checkbox')
+  let newItems = allChecks.filter(i => i.checked)
+  // must return array of checked input items
+  return newItems
+}
+
 // EVENT LISTENERS
 // ITEMS INDEX NAV
 document.querySelector('#items-link').addEventListener('click', e => {
