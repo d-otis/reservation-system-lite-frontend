@@ -201,5 +201,16 @@ document.querySelector('#reservations-link').addEventListener('click', e => {
   Reservation.renderAll()
 })
 
+// JUMBOTRON
+document.querySelector("#items-jumbo").addEventListener("click", e => {
+  clearContent()
+  Item.renderAll()
+})
+
+document.querySelector("#reservations-jumbo").addEventListener("click", e => {
+  clearContent()
+  Reservation.renderAll()
+})
+
 // MAIN API CALL!
 fetchAllData()
