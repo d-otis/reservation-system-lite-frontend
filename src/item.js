@@ -102,6 +102,7 @@ class Item {
     if (!this.isAvailable) tr.classList.add('table-danger')
 
     checkContainer.classList.add('form-group', 'form-check')
+    itemSerial.classList.add("text-monospace")
 
     checkbox.type = "checkbox"
     checkbox.classList.add('form-check-input')
