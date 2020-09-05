@@ -1,0 +1,5 @@
+class Jumbotron {
+  static render() {
+    
+  }
+}
