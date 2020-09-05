@@ -114,7 +114,7 @@ class Item {
     itemTitle.innerText = this.title
     itemDesc.innerText = this.shortDescription
     itemIsAvailable.innerText = this.isAvailable
-    itemSerial.innerText = this.serialNumber
+    itemSerial.innerText = this.serialNumber.toUpperCase()
 
     // APPENDS FOR DAYS
     tbody.appendChild(tr)
