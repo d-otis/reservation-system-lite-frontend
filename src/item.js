@@ -71,7 +71,8 @@ class Item {
       button.type = 'submit'
       button.innerText = "Create Reservation"
       button.id = 'create-reservation'
-      button.addEventListener('click', e => {
+
+      form.addEventListener('submit', e => {
         e.preventDefault()
         const allChecks = Array.from(document.querySelectorAll('input'))
         clearContent()
