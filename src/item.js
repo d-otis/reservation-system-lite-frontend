@@ -74,12 +74,9 @@ class Item {
 
       form.addEventListener('submit', e => {
         e.preventDefault()
-        const allChecks = Array.from(document.querySelectorAll('input'))
+        
+        create(collectCheckedItems(e.currentTarget), "reservations")
         clearContent()
-        const filteredChecks = allChecks.filter(e => e.checked)
-        const itemIds = filteredChecks.map(e => e.id)
-        // Reservation.create(itemIds)
-        create(itemIds, "reservations")
       })
 
       form.appendChild(button)
