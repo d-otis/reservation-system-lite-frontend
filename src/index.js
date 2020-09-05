@@ -58,8 +58,9 @@ const patch = (resource, e, addedItems=null) => {
 
   
   if (addedItems) {
+    // Adding item(s)
     reservation = resource
-    updatedItemIds = resource.itemIds.concat(addedItems.map(i => i.value))
+    updatedItemIds = resource.itemIds.concat(addedItems)
     updatedNotes = reservation.notes
     RESERVATIONS.find(r => r === reservation).itemIds = updatedItemIds
   } else if (e.type === 'click') {
