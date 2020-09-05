@@ -4,7 +4,7 @@ class Item {
     this.title = obj.attributes.title
     this.description = obj.attributes.description
     this.serialNumber = obj.attributes.serial_number
-    this.isAvailable = obj.attributes.is_available
+    // this.isAvailable = obj.attributes.is_available
   }
   // TRUNCATES DESCRIPTION
   get shortDescription() {
@@ -25,7 +25,7 @@ class Item {
     const headerCheck = document.createElement('th')
     const headerTitle = document.createElement('th')
     const headerDesc = document.createElement('th')
-    const headerIsAvailable = document.createElement('th')
+    // const headerIsAvailable = document.createElement('th')
     const headerSerial = document.createElement('th')
     const tbody = document.createElement('tbody')
 
@@ -38,13 +38,13 @@ class Item {
     headerCheck.scope = 'col'
     headerTitle.scope = 'col'
     headerDesc.scope = 'col'
-    headerIsAvailable.scope = 'col'
+    // headerIsAvailable.scope = 'col'
     headerSerial.scope = 'col'
 
     headerCheck.innerText = 'Select'
     headerTitle.innerText = 'Item'
     headerDesc.innerText = 'Description'
-    headerIsAvailable.innerText = 'Availability'
+    // headerIsAvailable.innerText = 'Availability'
     headerSerial.innerText = 'Serial Number'
 
     // APPEND TABLE HEADERS
@@ -56,7 +56,7 @@ class Item {
     tableHeadersRow.appendChild(headerCheck)
     tableHeadersRow.appendChild(headerTitle)
     tableHeadersRow.appendChild(headerDesc)
-    tableHeadersRow.appendChild(headerIsAvailable)
+    // tableHeadersRow.appendChild(headerIsAvailable)
     tableHeadersRow.appendChild(headerSerial)
     table.appendChild(tbody)
 
@@ -94,12 +94,12 @@ class Item {
     const checkbox = document.createElement('input')
     const itemTitle = document.createElement('td')
     const itemDesc = document.createElement('td')
-    const itemIsAvailable = document.createElement('td')
+    // const itemIsAvailable = document.createElement('td')
     const itemSerial = document.createElement('td')
 
     // NODE ATTRS
     th.scope = "row"
-    if (!this.isAvailable) tr.classList.add('table-danger')
+    // if (!this.isAvailable) tr.classList.add('table-danger')
 
     checkContainer.classList.add('form-group', 'form-check')
     itemSerial.classList.add("text-monospace")
@@ -109,11 +109,11 @@ class Item {
     checkbox.id = this.id
     checkbox.name = `reservation[item_ids][]`
     checkbox.value = this.id
-    if (!this.isAvailable) checkbox.disabled = true
+    // if (!this.isAvailable) checkbox.disabled = true
 
     itemTitle.innerText = this.title
     itemDesc.innerText = this.shortDescription
-    itemIsAvailable.innerText = this.isAvailable
+    // itemIsAvailable.innerText = this.isAvailable
     itemSerial.innerText = this.serialNumber.toUpperCase()
 
     // APPENDS FOR DAYS
@@ -123,7 +123,7 @@ class Item {
     checkContainer.appendChild(checkbox)
     tr.appendChild(itemTitle)
     tr.appendChild(itemDesc)
-    tr.appendChild(itemIsAvailable)
+    // tr.appendChild(itemIsAvailable)
     tr.appendChild(itemSerial)
   }
 }
