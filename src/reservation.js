@@ -337,9 +337,7 @@ class Reservation {
     root.appendChild(renderItemsModal())
   }
 
-  // RENDERS TABLE HEADER FOR *RESERVATION INDEX*
-  // THEN ITERATES OVER RESERVATIONS 
-  // and CALLS reservationInstance.render() on each
+  // Renders Reservation Index Page
   static renderAll() {
     const tbody = document.createElement("tbody")
     const tableHeaders = ["Reservation ID", "Notes", "Number of Items", "View", "Delete"]
