@@ -341,42 +341,16 @@ class Reservation {
   // THEN ITERATES OVER RESERVATIONS 
   // and CALLS reservationInstance.render() on each
   static renderAll() {
-    // DECLARATIONS + ASSIGNMENTS
-    const table = document.createElement("table")
-    const thead = document.createElement("thead")
-    const headersRow = document.createElement("tr")
-    const headerId = document.createElement("th")
-    const headerNotes = document.createElement("th")
-    const headerNumItems = document.createElement("th")
-    const headerShow = document.createElement("th")
-    const headerDelete = document.createElement("th")
     const tbody = document.createElement("tbody")
+    const tableHeaders = ["Reservation ID", "Notes", "Number of Items", "View", "Delete"]
+    const table = generateTableScaffold(tableHeaders)
 
     // ELEMENT ATTRIBUTES
     table.id = "reservations-table"
     table.classList.add('table', 'table-hover')
-    headerId.scope = "col"
-    headerNotes.scope = "col"
-    headerNumItems.scope = "col"
-    headerDelete.scope = "col"
-    headerShow.scope = 'col'
-
-    // HEADERS INNERTEXT
-    headerId.innerText = "Reservation ID"
-    headerNotes.innerText = "Notes"
-    headerNumItems.innerText = "Number of Items"
-    headerShow.innerText = "View"
-    headerDelete.innerText = "Delete"
 
     // APPENDS
     root.appendChild(table)
-    table.appendChild(thead)
-    thead.appendChild(headersRow)
-    headersRow.appendChild(headerId)
-    headersRow.appendChild(headerNotes)
-    headersRow.appendChild(headerNumItems)
-    headersRow.appendChild(headerShow)
-    headersRow.appendChild(headerDelete)
     table.appendChild(tbody)
 
     for (const reservation of RESERVATIONS) {
