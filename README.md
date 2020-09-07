@@ -2,7 +2,7 @@
 
 I was recently asked by a friend what it would take to make an equipment reservation system for their art gallery. The gears started turning and I wanted to take part of that domain as inspiration for my Rails and Javascript Final Project.
 
-[Frontend](https://github.com/d-otis/reservation-system-lite-frontend)
+[Frontend],(https://github.com/d-otis/reservation-system-lite-frontend)
 
 [Backend](https://github.com/d-otis/reservation-system-lite-backend)
 
