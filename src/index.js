@@ -101,7 +101,6 @@ const patch = (resource, e, addedItems=null) => {
 // GENERATES NEW INSTANCE OF RESERVATION 
 // WHEN CREATED BY USER 
 const generator = (json) => {
-  // debugger
   if (json.data.type === "reservation") {
     RESERVATIONS.push(new Reservation(json.data))
     return RESERVATIONS.slice(-1)[0]
