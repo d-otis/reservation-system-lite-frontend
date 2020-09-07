@@ -1,10 +1,10 @@
-# Reservation System Lite
+# Reservation System Lite - Front End
 
 I was recently asked by a friend what it would take to make an equipment reservation system for their art gallery. The gears started turning and I wanted to take part of that domain as inspiration for my Rails and Javascript Final Project.
 
-[Frontend](https://github.com/d-otis/reservation-system-lite-frontend)
+[Front End](https://github.com/d-otis/reservation-system-lite-frontend)
 
-[Backend](https://github.com/d-otis/reservation-system-lite-backend)
+[Back End](https://github.com/d-otis/reservation-system-lite-backend)
 
 ## Installation Instructions
 1. ```git clone``` both frontend and backend the repo onto your system
