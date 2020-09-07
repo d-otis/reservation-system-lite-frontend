@@ -77,11 +77,6 @@ class Reservation {
       const closeButton = document.createElement('button')
       const span = document.createElement('span')
       const modalBody = document.createElement('div')
-      const selectTable = document.createElement('table')
-      const selectThead = document.createElement("thead")
-      const selectTr = document.createElement('tr')
-      const selectThInHead = document.createElement('th')
-      const itemThInHead = document.createElement('th')
       const modalFooter = document.createElement('div')
       const cancelButton = document.createElement('button')
       const addItemsSave = document.createElement('input')
@@ -128,12 +123,6 @@ class Reservation {
 
       selectTable.classList.add('table', 'table-hover')
 
-      selectThInHead.scope = "col"
-      selectThInHead.innerText = "Select"
-
-      itemThInHead.scope = "col"
-      itemThInHead.innerText = "Item"
-
       modalFooter.classList.add('modal-footer')
 
       cancelButton.type = "button"
@@ -155,10 +144,6 @@ class Reservation {
       modalContentDiv.appendChild(modalBody)
       addItemsForm.appendChild(selectTable)
       addItemsForm.appendChild(modalFooter)
-      selectTable.appendChild(selectThead)
-      selectThead.appendChild(selectTr)
-      selectTr.appendChild(selectThInHead)
-      selectTr.appendChild(itemThInHead)
       modalFooter.appendChild(cancelButton)
       modalFooter.appendChild(addItemsSave)
       modalBody.appendChild(addItemsForm)
