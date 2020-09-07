@@ -7,7 +7,7 @@ I was recently asked by a friend what it would take to make an equipment reserva
 [Back End](https://github.com/d-otis/reservation-system-lite-backend)
 
 ## Installation Instructions
-1. ```git clone``` both frontend and backend the repo onto your system
+1. ```git clone``` both frontend and backend repos onto your system
 1. ```cd``` into the ```reservation-system-lite-backend``` directory
 1. ```bundle install``` from the command line to install the necessary gems 
 1. ```rails s``` to start the server
