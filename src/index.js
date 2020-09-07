@@ -189,6 +189,14 @@ const collectCheckedItems = form => {
   return checkedItemIds
 }
 
+const generateTableScaffold = headers => {
+  debugger
+  // Accepts Ordered Array of Table Headers
+  const table = document.createElement('table')
+  // returns table
+  return table
+}
+
 // EVENT LISTENERS
 // ITEMS INDEX NAV
 document.querySelector('#items-link').addEventListener('click', e => {
