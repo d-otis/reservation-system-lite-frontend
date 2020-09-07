@@ -105,7 +105,7 @@ const generator = (json) => {
     RESERVATIONS.push(new Reservation(json.data))
     return RESERVATIONS.slice(-1)[0]
   } else {
-    debugger
+    // reserved for different resource types
   }
 }
 
