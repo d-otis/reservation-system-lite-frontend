@@ -18,6 +18,8 @@ class Reservation {
     function appendItemsTableTo(el, items) {
       // DECLARATIONS + ASSIGMENTS
       const tbody = document.createElement('tbody')
+      const tableHeaders = ["Item ID", "Name", "Serial Number", "Remove"]
+      const table = generateTableScaffold(tableHeaders)
 
       // ELEMENT ATTRIBUTES
       table.classList.add('table')
