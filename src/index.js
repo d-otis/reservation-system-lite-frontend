@@ -190,10 +190,28 @@ const collectCheckedItems = form => {
 }
 
 const generateTableScaffold = headers => {
-  debugger
   // Accepts Ordered Array of Table Headers
+  // Declarations + Assignments
   const table = document.createElement('table')
-  // returns table
+  const thead = document.createElement('thead')
+  const tableHeadersRow = document.createElement('tr')
+
+  // th creation and attributes
+  const tableHeaders = headers.map(h => {
+    const th = document.createElement('th')
+    th.scope = "col"
+    th.innerText = h
+    return th
+  })
+  // attach table headers to tr in thead
+  for (const tableHeader of tableHeaders) {
+    tableHeadersRow.appendChild(tableHeader)
+  }
+
+  // Appends
+  thead.appendChild(tableHeadersRow)
+  table.appendChild(thead)
+
   return table
 }
 
