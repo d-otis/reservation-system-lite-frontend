@@ -17,34 +17,12 @@ class Reservation {
     // APPEND ITEM ROWS TO TBODY
     function appendItemsTableTo(el, items) {
       // DECLARATIONS + ASSIGMENTS
-      const table = document.createElement('table')
-      const thead = document.createElement('thead')
-      const tr = document.createElement('tr')
-      const headerItemId = document.createElement('th')
-      const headerTitle = document.createElement('th')
-      const headerSerial = document.createElement('th')
-      const headerRemove = document.createElement('th')
       const tbody = document.createElement('tbody')
 
       // ELEMENT ATTRIBUTES
       table.classList.add('table')
-      headerItemId.scope = "col"
-      headerTitle.scope = "col"
-      headerSerial.scope = "col"
-      headerRemove.scope = "col"
-
-      headerItemId.innerText = "Item ID"
-      headerTitle.innerText = "Name"
-      headerSerial.innerText = "Serial Number"
-      headerRemove.innerText = "Remove"
 
       // BOILER APPENDS
-      table.appendChild(thead)
-      thead.appendChild(tr)
-      tr.appendChild(headerItemId)
-      tr.appendChild(headerTitle)
-      tr.appendChild(headerSerial)
-      tr.appendChild(headerRemove)
       table.appendChild(tbody)
 
       // RENDER ITEM ROWS
