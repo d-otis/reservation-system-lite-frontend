@@ -81,6 +81,8 @@ class Reservation {
       const cancelButton = document.createElement('button')
       const addItemsSave = document.createElement('input')
       const addItemsForm = document.createElement('form')
+      const tableHeaders = ["Select", "Item"]
+      const selectTable = generateTableScaffold(tableHeaders)
 
       addItemsForm.addEventListener('submit', e => {
         if (e) e.preventDefault()
