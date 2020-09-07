@@ -26,6 +26,8 @@ class Item {
     const headerDesc = document.createElement('th')
     const headerSerial = document.createElement('th')
     const tbody = document.createElement('tbody')
+    const tableHeaders = ["Select", "Item", "Description", "Serial Number"]
+    const tableFeat = generateTableScaffold(tableHeaders)
 
     // DETAILS
     form.action = 'http://127.0.0.1:3000/api/v1/reservations'
