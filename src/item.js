@@ -10,7 +10,6 @@ class Item {
     return this.description.split(". ").map((x, index) => {
       return index <= 1 ? x : ''
     }).filter(x => x != "").join(". ") + "..."
-    // debugger
   }
 
   // RENDERS ITEMS INDEX

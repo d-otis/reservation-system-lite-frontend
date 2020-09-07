@@ -14,9 +14,7 @@ Jumbotron.render()
 const create = (obj, controller) => {
   // FORMATS REQUEST BODY BASED CONTROLLER PARAMETER
   const formatObj = (obj, controller) => {
-    // debugger
     if (controller === "items") {
-      // debugger
       return {
         item: {
           title: obj.title,
@@ -35,7 +33,6 @@ const create = (obj, controller) => {
   }
   // Properly Formatted Req Body
   const newObj = formatObj(obj, controller)
-  // debugger
   const config = {
     method: "post",
     headers: {
