@@ -10,5 +10,6 @@ I was recently asked by a friend what it would take to make an equipment reserva
 1. ```git clone``` both frontend and backend repos onto your system
 1. ```cd``` into the ```reservation-system-lite-backend``` directory
 1. ```bundle install``` from the command line to install the necessary gems 
+1. ```rails db:create``` then ```rails db:migrate``` to create and migrate your Postgresql database respectively
 1. ```rails s``` to start the server
 1. visit the ```index.html``` to view, create, update, or delete a reservation
