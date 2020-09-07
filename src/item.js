@@ -18,16 +18,16 @@ class Item {
     // TABLE
     // VARIABLE DECLARATION/ASSIGNMENT
     const form = document.createElement('form')
-    const table = document.createElement('table')
-    const thead = document.createElement('thead')
-    const tableHeadersRow = document.createElement('tr')
-    const headerCheck = document.createElement('th')
-    const headerTitle = document.createElement('th')
-    const headerDesc = document.createElement('th')
-    const headerSerial = document.createElement('th')
+    // const table = document.createElement('table')
+    // const thead = document.createElement('thead')
+    // const tableHeadersRow = document.createElement('tr')
+    // const headerCheck = document.createElement('th')
+    // const headerTitle = document.createElement('th')
+    // const headerDesc = document.createElement('th')
+    // const headerSerial = document.createElement('th')
     const tbody = document.createElement('tbody')
     const tableHeaders = ["Select", "Item", "Description", "Serial Number"]
-    const tableFeat = generateTableScaffold(tableHeaders)
+    const table = generateTableScaffold(tableHeaders)
 
     // DETAILS
     form.action = 'http://127.0.0.1:3000/api/v1/reservations'
@@ -35,26 +35,26 @@ class Item {
 
     table.id = "items-table"
     table.classList.add('table', 'table-hover', 'mb-5', 'shadow-sm')
-    headerCheck.scope = 'col'
-    headerTitle.scope = 'col'
-    headerDesc.scope = 'col'
-    headerSerial.scope = 'col'
+    // headerCheck.scope = 'col'
+    // headerTitle.scope = 'col'
+    // headerDesc.scope = 'col'
+    // headerSerial.scope = 'col'
 
-    headerCheck.innerText = 'Select'
-    headerTitle.innerText = 'Item'
-    headerDesc.innerText = 'Description'
-    headerSerial.innerText = 'Serial Number'
+    // headerCheck.innerText = 'Select'
+    // headerTitle.innerText = 'Item'
+    // headerDesc.innerText = 'Description'
+    // headerSerial.innerText = 'Serial Number'
 
     // APPEND TABLE HEADERS
     root.appendChild(form)
     // root.appendChild(table)
     form.appendChild(table)
-    table.appendChild(thead)
-    thead.appendChild(tableHeadersRow)
-    tableHeadersRow.appendChild(headerCheck)
-    tableHeadersRow.appendChild(headerTitle)
-    tableHeadersRow.appendChild(headerDesc)
-    tableHeadersRow.appendChild(headerSerial)
+    // table.appendChild(thead)
+    // thead.appendChild(tableHeadersRow)
+    // tableHeadersRow.appendChild(headerCheck)
+    // tableHeadersRow.appendChild(headerTitle)
+    // tableHeadersRow.appendChild(headerDesc)
+    // tableHeadersRow.appendChild(headerSerial)
     table.appendChild(tbody)
 
     // ITERATE OVER ITEMS AND RENDER THEIR ROWS
