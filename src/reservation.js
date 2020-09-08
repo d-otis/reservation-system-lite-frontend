@@ -61,7 +61,7 @@ class Reservation {
         tbody.appendChild(tr)
       }
 
-      // return table
+      // append table
       el.appendChild(table)
     }
 
