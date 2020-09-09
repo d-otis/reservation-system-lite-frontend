@@ -303,10 +303,11 @@ class Reservation {
   }
 
   // Renders Reservation Index Page
-  static renderAll() {
-    const tbody = document.createElement("tbody")
-    const tableHeaders = ["Reservation ID", "Notes", "Number of Items", "View", "Delete"]
-    const table = generateTableScaffold(tableHeaders)
+  static renderAll(matches = null) {
+      const reservationsIndex = matches ? matches : RESERVATIONS
+      const tbody = document.createElement("tbody")
+      const tableHeaders = ["Reservation ID", "Notes", "Number of Items", "View", "Delete"]
+      const table = generateTableScaffold(tableHeaders)
 
     // ELEMENT ATTRIBUTES
     table.id = "reservations-table"
