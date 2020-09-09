@@ -333,9 +333,13 @@ class Reservation {
       table.id = "reservations-table"
       table.classList.add('table', 'table-hover')
 
-    for (const reservation of RESERVATIONS) {
-      reservation.renderRow(tbody)
-    }
+      // APPENDS
+      root.appendChild(table)
+      table.appendChild(tbody)
+
+      for (const reservation of reservationsIndex) {
+        reservation.renderRow(tbody)
+      }
   }
 
   // RENDERS SINGLE ROW OF RESERVATION INDEX
