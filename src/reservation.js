@@ -12,6 +12,10 @@ class Reservation {
 
   // RENDERS RESERVATION SHOW PAGE
   static render(obj) {
+    if (searchContainer.childElementCount === 1) {
+      searchContainer.children[0].remove()
+    }
+
     // APPEND ITEM ROWS TO TBODY
     function appendItemsTableTo(el, items) {
       // DECLARATIONS + ASSIGMENTS
@@ -21,6 +25,7 @@ class Reservation {
 
       // ELEMENT ATTRIBUTES
       table.classList.add('table')
+      table.id = ("reservation-show-table")
 
       // BOILER APPENDS
       table.appendChild(tbody)
@@ -333,7 +338,7 @@ class Reservation {
       }
 
       // ELEMENT ATTRIBUTES
-      table.id = "reservations-table"
+      table.id = "reservations-index-table"
       table.classList.add('table', 'table-hover')
 
       // APPENDS
