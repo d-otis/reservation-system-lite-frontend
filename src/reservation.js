@@ -309,9 +309,25 @@ class Reservation {
       const tableHeaders = ["Reservation ID", "Notes", "Number of Items", "View", "Delete"]
       const table = generateTableScaffold(tableHeaders)
 
-    // ELEMENT ATTRIBUTES
-    table.id = "reservations-table"
-    table.classList.add('table', 'table-hover')
+      // Search Bar
+      if (searchContainer.childElementCount === 0) {
+        searchContainer.classList.add("container", 'my-5')
+        const search = document.createElement('input')
+        search.type = "text"
+        search.placeholder = "Search by Reservation ID"
+        search.classList.add("form-control" , "form-control-lg")
+
+        searchContainer.appendChild(search)
+        search.addEventListener('input', e => {
+          const input = e.target.value
+
+          if (input) {
+            const matchedReservations = RESERVATIONS.filter(r => r.id.startsWith(input))
+            clearContent()
+            this.renderAll(matchedReservations)
+          }
+        })
+      }
 
     // APPENDS
     root.appendChild(table)
