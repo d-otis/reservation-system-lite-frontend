@@ -325,6 +325,9 @@ class Reservation {
             const matchedReservations = RESERVATIONS.filter(r => r.id.startsWith(input))
             clearContent()
             this.renderAll(matchedReservations)
+          } else {
+            clearContent()
+            this.renderAll()
           }
         })
       }
