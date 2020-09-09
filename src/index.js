@@ -212,6 +212,12 @@ const generateTableScaffold = headers => {
   return table
 }
 
+const removeSearch = () => {
+  if (searchContainer.childElementCount === 1) {
+    searchContainer.children[0].remove()
+  }
+}
+
 // EVENT LISTENERS
 // ITEMS INDEX NAV
 document.querySelector('#items-link').addEventListener('click', e => {

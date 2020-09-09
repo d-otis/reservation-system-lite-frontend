@@ -14,6 +14,7 @@ class Item {
 
   // RENDERS ITEMS INDEX
   static renderAll() {
+    removeSearch()
     // TABLE
     // VARIABLE DECLARATION/ASSIGNMENT
     const form = document.createElement('form')

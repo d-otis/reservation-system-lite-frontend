@@ -12,9 +12,7 @@ class Reservation {
 
   // RENDERS RESERVATION SHOW PAGE
   static render(obj) {
-    if (searchContainer.childElementCount === 1) {
-      searchContainer.children[0].remove()
-    }
+    removeSearch()
 
     // APPEND ITEM ROWS TO TBODY
     function appendItemsTableTo(el, items) {
