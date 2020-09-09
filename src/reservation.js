@@ -329,9 +329,9 @@ class Reservation {
         })
       }
 
-    // APPENDS
-    root.appendChild(table)
-    table.appendChild(tbody)
+      // ELEMENT ATTRIBUTES
+      table.id = "reservations-table"
+      table.classList.add('table', 'table-hover')
 
     for (const reservation of RESERVATIONS) {
       reservation.renderRow(tbody)
